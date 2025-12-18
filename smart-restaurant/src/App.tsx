@@ -1,0 +1,110 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
+import Landing from './pages/Landing';
+import Auth from './components/Auth';
+import About from './pages/About';
+import Register from './pages/Register';
+import ContactUs from './pages/ContactUs';
+import Reservation from './pages/Reservation';
+import Reviews from './pages/Reviews';
+import PrivateRoute from './components/PrivateRoute';
+import Navbar from './components/Navbar';
+import { AuthProvider } from './context/AuthContext';
+import ScanOrder from './pages/ScanOrder';
+import ScanAndPay from './pages/ScanAndPay';
+import Menu from './pages/Menu';
+import Checkout from './pages/Checkout';
+import Dashboard from './components/Dashboard';
+import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
+// Admin panel imports
+import AdminMenu from './pages/admin/modules/Menu';
+import AdminOrders from './pages/admin/modules/Orders';
+import AdminTables from './pages/admin/modules/Tables';
+import AdminReservations from './pages/admin/modules/Reservations';
+import AdminStaff from './pages/admin/modules/Staff';
+import AdminPayments from './pages/admin/modules/Payments';
+import AdminFeedback from './pages/admin/modules/Feedback';
+import AdminReports from './pages/admin/modules/Reports';
+import AdminSettings from './pages/admin/modules/Settings';
+import CompleteAdminDashboard from './pages/CompleteAdminDashboard';
+
+// App Routes Component
+const AppRoutes: React.FC = () => {
+  const { isLoading } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FFD700] mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
+      <div className="pt-16">
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<Landing />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/reservation" element={<Reservation />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/scan-order" element={<ScanOrder />} />
+          <Route path="/scan-pay" element={<ScanAndPay />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/edit" element={<EditProfile />} />
+
+          {/* Admin Routes */}
+          <Route
+            path="/admin/*"
+            element={
+              <PrivateRoute role="admin">
+                <Routes>
+                  <Route path="menu" element={<AdminMenu />} />
+                  <Route path="orders" element={<AdminOrders />} />
+                  <Route path="tables" element={<AdminTables />} />
+                  <Route path="reservations" element={<AdminReservations />} />
+                  <Route path="staff" element={<AdminStaff />} />
+                  <Route path="payments" element={<AdminPayments />} />
+                  <Route path="feedback" element={<AdminFeedback />} />
+                  <Route path="reports" element={<AdminReports />} />
+                  <Route path="settings" element={<AdminSettings />} />
+                  <Route path="dashboard" element={<CompleteAdminDashboard />} />
+                  <Route path="" element={<Navigate to="/admin/dashboard" replace />} />
+                </Routes>
+              </PrivateRoute>
+            }
+          />
+
+          {/* Catch all route - redirect to home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </div>
+  );
+};
+
+// Main App Component
+const App: React.FC = () => {
+  return (
+    <AuthProvider>
+      <Router>
+        <AppRoutes />
+      </Router>
+    </AuthProvider>
+  );
+};
+
+export default App;

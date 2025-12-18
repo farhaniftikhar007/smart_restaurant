@@ -1,0 +1,160 @@
+// src/services/authService.ts
+import httpClient from './http';
+
+export interface User {
+  id: number;
+  email: string;
+  username: string;
+  full_name?: string;
+  phone?: string;
+  role: 'admin' | 'staff' | 'customer';
+  is_active: boolean;
+  created_at: string;
+}
+
+export interface LoginCredentials {
+  email: string;
+  password: string;
+}
+
+export interface RegisterData {
+  email: string;
+  username: string;
+  password: string;
+  full_name?: string;
+  phone?: string;
+}
+
+export interface AuthResponse {
+  access_token: string;
+  token_type: string;
+}
+
+class AuthService {
+  /**
+   * Login user and store token
+   */
+  async login(credentials: LoginCredentials): Promise<{ success: boolean; message: string; data: User }> {
+    try {
+      const response = await httpClient.post<AuthResponse>('/api/auth/login', credentials);
+      const { access_token } = response.data;
+      
+      // Store token
+      localStorage.setItem('access_token', access_token);
+      
+      // Get user info
+      const user = await this.getCurrentUser();
+      localStorage.setItem('user', JSON.stringify(user));
+      
+      return {
+        success: true,
+        message: 'Login successful',
+        data: user,
+      };
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.response?.data?.detail || 'Login failed',
+        data: null as any,
+      };
+    }
+  }
+
+  /**
+   * Register new user
+   */
+  async register(data: RegisterData): Promise<{ success: boolean; message: string; data: User | null }> {
+    try {
+      const response = await httpClient.post<User>('/api/auth/register', data);
+      return {
+        success: true,
+        message: 'Registration successful',
+        data: response.data,
+      };
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.response?.data?.detail || 'Registration failed',
+        data: null,
+      };
+    }
+  }
+
+  /**
+   * Get current user info
+   */
+  async getCurrentUser(): Promise<User> {
+    const response = await httpClient.get<User>('/api/auth/me');
+    return response.data;
+  }
+
+  /**
+   * Logout user
+   */
+  logout(): void {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('user');
+    window.location.href = '/auth';
+  }
+
+  /**
+   * Get stored token
+   */
+  getToken(): string | null {
+    return localStorage.getItem('access_token');
+  }
+
+  /**
+   * Get stored user
+   */
+  getUser(): User | null {
+    const userStr = localStorage.getItem('user');
+    return userStr ? JSON.parse(userStr) : null;
+  }
+
+  /**
+   * Check if user is authenticated
+   */
+  isAuthenticated(): boolean {
+    return !!this.getToken();
+  }
+
+  /**
+   * Check if user is admin
+   */
+  isAdmin(): boolean {
+    const user = this.getUser();
+    return user?.role === 'admin';
+  }
+
+  /**
+   * Update user profile
+   */
+  /**
+   * Update user profile
+   */
+  async updateProfile(data: { full_name?: string; phone?: string }): Promise<{ success: boolean; message: string; data: User | null }> {
+    try {
+      // Call backend API to update profile
+      const response = await httpClient.put<any>('/api/auth/profile', data);
+      
+      // Update localStorage with new user data
+      const updatedUser = response.data;
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      
+      return {
+        success: true,
+        message: 'Profile updated successfully',
+        data: updatedUser,
+      };
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.response?.data?.detail || 'Failed to update profile',
+        data: null,
+      };
+    }
+  }
+}
+
+export const authService = new AuthService();
