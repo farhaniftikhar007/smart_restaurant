@@ -104,7 +104,7 @@ class OrderItemResponse(BaseModel):
     quantity: int
     price: float
     special_instructions: Optional[str] = None
-    menu_item: MenuItemResponse
+    menu_item: Optional[MenuItemResponse] = None
     
     class Config:
         from_attributes = True

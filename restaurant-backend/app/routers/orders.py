@@ -1,6 +1,7 @@
 # app/routers/orders.py
 from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.orm import Session
+from sqlalchemy.orm import joinedload
 from typing import List, Optional
 from datetime import datetime
 import random
@@ -119,7 +120,7 @@ async def get_orders(
     if status:
         query = query.filter(Order.status == status)
     
-    orders = query.order_by(Order.created_at.desc()).offset(skip).limit(limit).all()
+    orders = query.options(joinedload(Order.order_items).joinedload(OrderItem.menu_item)).order_by(Order.created_at.desc()).offset(skip).limit(limit).all()
     return orders
 
 

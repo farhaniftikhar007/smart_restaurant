@@ -129,3 +129,87 @@ async def check_availability(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=str(e)
         )
+
+
+@router.get("/")
+async def get_all_reservations(db: Session = Depends(get_db)):
+    """Get all reservations (for admin)."""
+    logger.info("📋 Fetching all reservations")
+    
+    try:
+        reservations = db.query(Reservation).order_by(Reservation.date.desc(), Reservation.time.desc()).all()
+        
+        logger.info(f"✅ Found {len(reservations)} reservations")
+        
+        # Return as list of dicts
+        return [
+            {
+                "id": r.id,
+                "user_id": r.user_id,
+                "name": r.name,
+                "email": r.email,
+                "phone": r.phone,
+                "date": r.date.isoformat(),
+                "time": r.time,
+                "guests": r.guests,
+                "special_requests": r.special_requests,
+                "status": r.status,
+                "created_at": r.created_at.isoformat()
+            }
+            for r in reservations
+        ]
+        
+    except Exception as e:
+        logger.error(f"❌ Failed to fetch reservations: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to fetch reservations: {str(e)}"
+        )
+
+
+@router.patch("/{reservation_id}/status")
+async def update_reservation_status(
+    reservation_id: int,
+    status_data: dict,
+    db: Session = Depends(get_db)
+):
+    """Update reservation status."""
+    logger.info(f"🔄 Updating reservation {reservation_id} status to {status_data.get('status')}")
+    
+    try:
+        reservation = db.query(Reservation).filter(Reservation.id == reservation_id).first()
+        
+        if not reservation:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Reservation not found"
+            )
+        
+        new_status = status_data.get('status')
+        if new_status not in ['pending', 'confirmed', 'cancelled', 'completed']:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Invalid status"
+            )
+        
+        reservation.status = new_status
+        db.commit()
+        db.refresh(reservation)
+        
+        logger.info(f"✅ Reservation {reservation_id} status updated to {new_status}")
+        
+        return {
+            "id": reservation.id,
+            "status": reservation.status,
+            "message": f"Reservation status updated to {new_status}"
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"❌ Failed to update reservation: {str(e)}")
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to update reservation: {str(e)}"
+        )

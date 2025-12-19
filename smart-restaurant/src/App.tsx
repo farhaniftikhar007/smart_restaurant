@@ -21,6 +21,7 @@ import EditProfile from './pages/EditProfile';
 // Admin panel imports
 import AdminMenu from './pages/admin/modules/Menu';
 import AdminOrders from './pages/admin/modules/Orders';
+import OrdersManagement from './pages/OrdersManagement';
 import AdminTables from './pages/admin/modules/Tables';
 import AdminReservations from './pages/admin/modules/Reservations';
 import AdminStaff from './pages/admin/modules/Staff';
@@ -73,7 +74,7 @@ const AppRoutes: React.FC = () => {
               <PrivateRoute role="admin">
                 <Routes>
                   <Route path="menu" element={<AdminMenu />} />
-                  <Route path="orders" element={<AdminOrders />} />
+                  <Route path="orders" element={<OrdersManagement />} />
                   <Route path="tables" element={<AdminTables />} />
                   <Route path="reservations" element={<AdminReservations />} />
                   <Route path="staff" element={<AdminStaff />} />

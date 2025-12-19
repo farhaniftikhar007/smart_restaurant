@@ -45,7 +45,7 @@ const CompleteAdminDashboard: React.FC = () => {
       description: 'View and manage all orders',
       icon: ClipboardDocumentListIcon,
       color: 'bg-blue-500',
-      path: '/admin/orders-new',  // Changed path
+      path: '/admin/orders',  // Changed path
       stat: stats.pendingOrders,
       statLabel: 'Pending'
     },
@@ -72,7 +72,7 @@ const CompleteAdminDashboard: React.FC = () => {
       description: 'View and manage reservations',
       icon: CalendarIcon,
       color: 'bg-yellow-500',
-      path: '/admin/reservations-new',  // Changed path
+      path: '/admin/reservations',  // Changed path
       stat: stats.activeReservations,
       statLabel: 'Active'
     }
