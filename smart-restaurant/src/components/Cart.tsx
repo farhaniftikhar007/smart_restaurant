@@ -112,7 +112,7 @@ const Cart: React.FC<CartProps> = ({
             disabled={items.length === 0}
             className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Place Order
+            Checkout
           </button>
         </div>
       </div>

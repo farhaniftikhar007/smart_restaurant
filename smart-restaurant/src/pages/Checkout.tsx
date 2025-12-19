@@ -57,7 +57,8 @@ const Checkout: React.FC = () => {
       );
 
       alert(`Order placed successfully! Order #${response.data.order_number}`);
-      navigate('/menu');
+            // Notify Menu.tsx to clear cart      window.dispatchEvent(new CustomEvent('clearCart'));
+      navigate('/menu', { state: { clearCart: true } });
       
     } catch (error: any) {
       console.error('Order error:', error);

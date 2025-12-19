@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { menuService, MenuItem as APIMenuItem } from '../services/menuService';
 import { ShoppingCartIcon, MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -11,6 +11,7 @@ interface CartItem extends APIMenuItem {
 const Menu: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation() as any;
   const [menuItems, setMenuItems] = useState<APIMenuItem[]>([]);
   const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -18,6 +19,14 @@ const Menu: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [cart, setCart] = useState<CartItem[]>([]);
   const [showCart, setShowCart] = useState(false);
+
+  // Clear cart after successful order
+  useEffect(() => {
+    if (location.state?.clearCart) {
+      setCart([]);
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
 
   useEffect(() => {
     loadMenu();
@@ -371,7 +380,7 @@ const Menu: React.FC = () => {
                       <span>Total:</span>
                       <span>${getTotalPrice().toFixed(2)}</span>
                     </div>
-                    <button className="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600 font-semibold">
+                    <button onClick={() => navigate("/checkout", { state: { cart } })} className="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600 font-semibold">
                       Checkout
                     </button>
                   </div>

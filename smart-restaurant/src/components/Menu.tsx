@@ -1,5 +1,5 @@
-import React, { useState, useEffect }
-import { useNavigate } from 'react-router-dom'; from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import { 
@@ -342,107 +342,13 @@ const Menu: React.FC = () => {
       )
     );
   };
-
   const handlePlaceOrder = () => {
+    console.log("🔥 handlePlaceOrder called!");
     if (cart.length === 0) {
-      alert('Your cart is empty!');
+      alert("Your cart is empty!");
       return;
     }
-    navigate('/checkout', { 
-      state: { 
-        cart: cart.map(item => ({
-          id: item.id,
-          name: item.name,
-          price: item.price,
-          quantity: item.quantity
-        }))
-      } 
-    });
-    setIsCartOpen(false);
-  };
-  const handlePlaceOrder = () => {
-    if (cart.length === 0) {
-      alert('Your cart is empty!');
-      return;
-    }
-    navigate('/checkout', { 
-      state: { 
-        cart: cart.map(item => ({
-          id: item.id,
-          name: item.name,
-          price: item.price,
-          quantity: item.quantity
-        }))
-      } 
-    });
-    setIsCartOpen(false);
-  };
-  const handlePlaceOrder = () => {
-    if (cart.length === 0) {
-      alert('Your cart is empty!');
-      return;
-    }
-    navigate('/checkout', { 
-      state: { 
-        cart: cart.map(item => ({
-          id: item.id,
-          name: item.name,
-          price: item.price,
-          quantity: item.quantity
-        }))
-      } 
-    });
-    setIsCartOpen(false);
-  };
-  const handlePlaceOrder = () => {
-    if (cart.length === 0) {
-      alert('Your cart is empty!');
-      return;
-    }
-    navigate('/checkout', { 
-      state: { 
-        cart: cart.map(item => ({
-          id: item.id,
-          name: item.name,
-          price: item.price,
-          quantity: item.quantity
-        }))
-      } 
-    });
-    setIsCartOpen(false);
-  };
-  const handlePlaceOrder = () => {
-    if (cart.length === 0) {
-      alert('Your cart is empty!');
-      return;
-    }
-    navigate('/checkout', { 
-      state: { 
-        cart: cart.map(item => ({
-          id: item.id,
-          name: item.name,
-          price: item.price,
-          quantity: item.quantity
-        }))
-      } 
-    });
-    setIsCartOpen(false);
-  };
-  const handlePlaceOrder = () => {
-    if (cart.length === 0) {
-      alert('Your cart is empty!');
-      return;
-    }
-    navigate('/checkout', { 
-      state: { 
-        cart: cart.map(item => ({
-          id: item.id,
-          name: item.name,
-          price: item.price,
-          quantity: item.quantity
-        }))
-      } 
-    });
+    navigate("/checkout", { state: { cart } });
     setIsCartOpen(false);
   };
 

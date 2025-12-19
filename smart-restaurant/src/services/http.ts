@@ -16,7 +16,7 @@ const httpClient: AxiosInstance = axios.create({
 // Request interceptor - attach token
 httpClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const token = localStorage.getItem('access_token');
+    const token = localStorage.getItem('token');
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -31,7 +31,7 @@ httpClient.interceptors.response.use(
   async (error: AxiosError) => {
     if (error.response?.status === 401) {
       // Token expired or invalid
-      localStorage.removeItem('access_token');
+      localStorage.removeItem('token');
       localStorage.removeItem('user');
       
       // Optional: Implement token refresh here
@@ -39,7 +39,7 @@ httpClient.interceptors.response.use(
       // if (refreshToken) {
       //   try {
       //     const response = await axios.post(`${API_BASE_URL}/api/auth/refresh`, { refresh_token: refreshToken });
-      //     localStorage.setItem('access_token', response.data.access_token);
+      //     localStorage.setItem('token', response.data.access_token);
       //     return httpClient.request(error.config!);
       //   } catch (refreshError) {
       //     window.location.href = '/auth';

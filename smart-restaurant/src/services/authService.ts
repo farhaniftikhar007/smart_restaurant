@@ -40,7 +40,7 @@ class AuthService {
       const { access_token } = response.data;
       
       // Store token
-      localStorage.setItem('access_token', access_token);
+      localStorage.setItem('token', access_token);
       
       // Get user info
       const user = await this.getCurrentUser();
@@ -92,7 +92,7 @@ class AuthService {
    * Logout user
    */
   logout(): void {
-    localStorage.removeItem('access_token');
+    localStorage.removeItem('token');
     localStorage.removeItem('user');
     window.location.href = '/auth';
   }
@@ -101,7 +101,7 @@ class AuthService {
    * Get stored token
    */
   getToken(): string | null {
-    return localStorage.getItem('access_token');
+    return localStorage.getItem('token');
   }
 
   /**
