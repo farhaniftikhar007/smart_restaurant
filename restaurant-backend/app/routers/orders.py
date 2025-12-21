@@ -1,3 +1,8 @@
+import logging
+
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 # app/routers/orders.py
 from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.orm import Session
@@ -8,9 +13,10 @@ import random
 import string
 
 from app.database import get_db
+from app.utils.auth import get_current_active_user
 from app.models import Order, OrderItem, MenuItem, User, OrderStatus
 from app.schemas import OrderCreate, OrderResponse, OrderStatusUpdate
-from app.utils.auth import get_current_active_user, get_admin_user
+from app.utils.auth import get_current_active_user, get_admin_user, get_current_user
 from app.websocket import manager
 
 router = APIRouter()
@@ -124,6 +130,55 @@ async def get_orders(
     return orders
 
 
+
+
+@router.get("/my-orders")
+async def get_my_orders(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_active_user)
+):
+    """Get all orders for the current logged-in user."""
+    logger.info(f"📋 Fetching orders for user: {current_user.email}")
+    
+    try:
+        orders = db.query(Order).filter(
+            Order.customer_id == current_user.id
+        ).order_by(Order.created_at.desc()).all()
+        
+        result = []
+        for order in orders:
+            # Get order items
+            order_items = db.query(OrderItem).filter(OrderItem.order_id == order.id).all()
+            
+            items_data = []
+            for item in order_items:
+                menu_item = db.query(MenuItem).filter(MenuItem.id == item.menu_item_id).first()
+                items_data.append({
+                    "menu_item_id": item.menu_item_id,
+                    "name": menu_item.name if menu_item else "Unknown Item",
+                    "quantity": item.quantity,
+                    "price": float(item.price)
+                })
+            
+            result.append({
+                "id": order.id,
+                "order_number": order.order_number,
+                "table_number": order.table_number,
+                "status": order.status,
+                "total_amount": float(order.total_amount),
+                "items": items_data,
+                "created_at": order.created_at.isoformat()
+            })
+        
+        logger.info(f"✅ Found {len(result)} orders for user")
+        return result
+        
+    except Exception as e:
+        logger.error(f"❌ Failed to fetch user orders: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to fetch orders: {str(e)}"
+        )
 @router.get("/{order_id}", response_model=OrderResponse)
 async def get_order(
     order_id: int,
@@ -215,3 +270,53 @@ async def cancel_order(
     order.status = OrderStatus.CANCELLED
     db.commit()
     return None
+
+
+@router.get("/track/{order_number}")
+async def track_order(order_number: str, db: Session = Depends(get_db)):
+    """Track order status by order number (no auth required for guests)."""
+    logger.info(f"📍 Tracking order: {order_number}")
+    
+    try:
+        order = db.query(Order).filter(Order.order_number == order_number).first()
+        
+        if not order:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Order not found"
+            )
+        
+        # Get order items
+        order_items = db.query(OrderItem).filter(OrderItem.order_id == order.id).all()
+        
+        items_data = []
+        for item in order_items:
+            menu_item = db.query(MenuItem).filter(MenuItem.id == item.menu_item_id).first()
+            items_data.append({
+                "menu_item_id": item.menu_item_id,
+                "name": menu_item.name if menu_item else "Unknown Item",
+                "quantity": item.quantity,
+                "price": float(item.price)
+            })
+        
+        return {
+            "id": order.id,
+            "order_number": order.order_number,
+            "table_number": order.table_number,
+            "guest_name": order.guest_name,
+            "status": order.status,
+            "total_amount": float(order.total_amount),
+            "items": items_data,
+            "created_at": order.created_at.isoformat()
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"❌ Failed to track order: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to track order: {str(e)}"
+
+        )
+

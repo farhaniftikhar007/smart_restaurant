@@ -1,3 +1,4 @@
+# main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
@@ -10,21 +11,23 @@ from app.config import settings
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("🚀 Starting up...")
+    # Startup: Create tables
     Base.metadata.create_all(bind=engine)
     yield
-    print("🔄 Shutting down...")
+    # Shutdown: cleanup if needed
 
-# Create FastAPI app
+
 app = FastAPI(
-    title=settings.APP_NAME,
+    title="Smart Restaurant API",
+    description="Backend API for Smart Restaurant Management System",
+    version="1.0.0",
     lifespan=lifespan
 )
 
-# CORS Configuration - Allow all origins for development
+# CORS Configuration for React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins
+    allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -35,13 +38,37 @@ app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
 app.include_router(menu.router, prefix="/api/menu", tags=["Menu"])
 app.include_router(orders.router, prefix="/api/orders", tags=["Orders"])
 app.include_router(restaurant.router, prefix="/api/restaurant", tags=["Restaurant"])
-app.include_router(websocket.router, prefix="/api/ws", tags=["WebSocket"])
+app.include_router(websocket.router, prefix="/api", tags=["WebSocket"])
 app.include_router(reservations.router, prefix="/api/reservations", tags=["Reservations"])
 app.include_router(tables.router, prefix="/api/tables", tags=["Tables"])
 
+
 @app.get("/")
 async def root():
-    return {"message": "Smart Restaurant API", "status": "running"}
+    return {
+        "message": "Smart Restaurant API",
+        "version": "1.0.0",
+        "status": "running"
+    }
+
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True
+    )
+
+# Serve static files
+from fastapi.staticfiles import StaticFiles
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Include upload router
+from app.routers import upload
+app.include_router(upload.router, prefix="/api/upload", tags=["Upload"])

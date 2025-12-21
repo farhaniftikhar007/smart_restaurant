@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../../../config/api";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -28,7 +29,7 @@ const Reservations: React.FC = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:8000/api/reservations/', {
+      const response = await axios.get(`${API_BASE_URL}/api/reservations/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setReservations(response.data);
@@ -45,7 +46,7 @@ const Reservations: React.FC = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.patch(
-        `http://localhost:8000/api/reservations/${reservationId}/status`,
+        `${API_BASE_URL}/api/reservations/${reservationId}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

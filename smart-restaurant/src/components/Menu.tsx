@@ -411,8 +411,8 @@ const Menu: React.FC = () => {
       headers.join(','),
       ...menuItems.map(item => [
         item.id,
-        `"${item.name}"`,
-        `"${item.description}"`,
+        `${item.name}`,
+        `${item.description}`,
         item.price,
         item.category
       ].join(','))

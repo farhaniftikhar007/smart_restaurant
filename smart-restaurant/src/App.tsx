@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { DebugInfo } from './components/DebugInfo';
 import { useAuth } from './context/AuthContext';
 import Landing from './pages/Landing';
 import Auth from './components/Auth';
@@ -14,6 +15,9 @@ import { AuthProvider } from './context/AuthContext';
 import ScanOrder from './pages/ScanOrder';
 import ScanAndPay from './pages/ScanAndPay';
 import Menu from './pages/Menu';
+import GuestOrder from './pages/GuestOrder';
+import OrderStatus from './pages/OrderStatus';
+import MyOrders from './pages/MyOrders';
 import Checkout from './pages/Checkout';
 import Dashboard from './components/Dashboard';
 import Profile from './pages/Profile';
@@ -62,6 +66,8 @@ const AppRoutes: React.FC = () => {
           <Route path="/scan-order" element={<ScanOrder />} />
           <Route path="/scan-pay" element={<ScanAndPay />} />
           <Route path="/menu" element={<Menu />} />
+          <Route path="/my-orders" element={<MyOrders />} />
+          <Route path="/guest-order" element={<GuestOrder />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />

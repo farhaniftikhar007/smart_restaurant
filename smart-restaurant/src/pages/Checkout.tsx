@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../config/api";
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -46,7 +47,7 @@ const Checkout: React.FC = () => {
       };
 
       const response = await axios.post(
-        'http://localhost:8000/api/orders',
+        `${API_BASE_URL}/api/orders`,
         orderData,
         {
           headers: {

@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../../../config/api";
 import React, { useState, useEffect } from 'react';
 import { menuService, MenuItem, Category } from '../../../services/menuService';
 import { PlusIcon, PencilIcon, TrashIcon, XMarkIcon, PhotoIcon } from '@heroicons/react/24/outline';
@@ -60,7 +61,7 @@ const Menu = () => {
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await fetch('http://localhost:8000/api/upload/image', {
+      const response = await fetch(`${API_BASE_URL}/api/upload/image`, {
         method: 'POST',
         body: formData,
       });
@@ -70,7 +71,7 @@ const Menu = () => {
       if (response.ok) {
         setFormData(prev => ({
           ...prev,
-          image_url: `http://localhost:8000${data.image_url}`
+          image_url: `${API_BASE_URL}${data.image_url}`
         }));
         alert('Image uploaded successfully!');
       } else {

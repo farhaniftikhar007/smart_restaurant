@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { menuService, MenuItem as APIMenuItem } from '../services/menuService';
 import { ShoppingCartIcon, MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
@@ -8,15 +7,11 @@ interface CartItem extends APIMenuItem {
   quantity: number;
 }
 
-const Menu: React.FC = () => {
-  const { user } = useAuth();
+const GuestOrder: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation() as any;
   const [searchParams] = useSearchParams();
   
-  // Get table number from URL query parameter
   const tableNumber = searchParams.get('table');
-  const isGuestMode = !!tableNumber; // Guest mode if table parameter exists
   
   const [menuItems, setMenuItems] = useState<APIMenuItem[]>([]);
   const [categories, setCategories] = useState<any[]>([]);
@@ -28,31 +23,33 @@ const Menu: React.FC = () => {
   const [guestName, setGuestName] = useState('');
   const [showGuestNameModal, setShowGuestNameModal] = useState(false);
 
-  // Clear cart after successful order
+  // All hooks must come before any conditional returns
   useEffect(() => {
-    if (location.state?.clearCart) {
-      setCart([]);
-      window.history.replaceState({}, document.title);
-    }
-  }, [location]);
-
-  useEffect(() => {
-    loadMenu();
-    // Load cart from localStorage
-    const cartKey = isGuestMode ? `guest_cart_table_${tableNumber}` : `cart_${user?.id}`;
-    const savedCart = localStorage.getItem(cartKey);
-    if (savedCart) {
-      setCart(JSON.parse(savedCart));
-    }
-    
-    // Load guest name if exists
-    if (isGuestMode) {
+    if (tableNumber) {
+      loadMenu();
+      const savedCart = localStorage.getItem(`guest_cart_table_${tableNumber}`);
+      if (savedCart) {
+        setCart(JSON.parse(savedCart));
+      }
+      
       const savedGuestName = localStorage.getItem(`guest_name_table_${tableNumber}`);
       if (savedGuestName) {
         setGuestName(savedGuestName);
       }
     }
-  }, [selectedCategory, user, tableNumber, isGuestMode]);
+  }, [selectedCategory, tableNumber]);
+
+  // NOW we can do conditional rendering
+  if (!tableNumber) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Invalid QR Code</h1>
+          <p className="text-gray-600">Please scan a valid table QR code</p>
+        </div>
+      </div>
+    );
+  }
 
   const loadMenu = async () => {
     setLoading(true);
@@ -73,21 +70,11 @@ const Menu: React.FC = () => {
 
     setLoading(false);
   };
-
   const addToCart = (item: APIMenuItem) => {
-    // For guest mode, ask for name on first add
-    if (isGuestMode && !guestName) {
+    // Ask for name on first add
+    if (!guestName) {
       setShowGuestNameModal(true);
-      // Store the item to add after name is provided
       (window as any).pendingCartItem = item;
-      return;
-    }
-
-    // Check if user is logged in (for non-guest mode)
-    if (!isGuestMode && !user) {
-      if (window.confirm('Please login to add items to cart. Go to login page?')) {
-        navigate('/auth');
-      }
       return;
     }
 
@@ -105,11 +92,7 @@ const Menu: React.FC = () => {
     }
     
     setCart(newCart);
-    const cartKey = isGuestMode ? `guest_cart_table_${tableNumber}` : `cart_${user?.id}`;
-    localStorage.setItem(cartKey, JSON.stringify(newCart));
-    
-    // Show notification
-    alert(`${item.name} added to cart!`);
+    localStorage.setItem(`guest_cart_table_${tableNumber}`, JSON.stringify(newCart));
   };
 
   const handleGuestNameSubmit = () => {
@@ -121,7 +104,6 @@ const Menu: React.FC = () => {
     localStorage.setItem(`guest_name_table_${tableNumber}`, guestName);
     setShowGuestNameModal(false);
     
-    // Add the pending item
     const pendingItem = (window as any).pendingCartItem;
     if (pendingItem) {
       addToCart(pendingItem);
@@ -132,8 +114,7 @@ const Menu: React.FC = () => {
   const removeFromCart = (itemId: number) => {
     const newCart = cart.filter(item => item.id !== itemId);
     setCart(newCart);
-    const cartKey = isGuestMode ? `guest_cart_table_${tableNumber}` : `cart_${user?.id}`;
-    localStorage.setItem(cartKey, JSON.stringify(newCart));
+    localStorage.setItem(`guest_cart_table_${tableNumber}`, JSON.stringify(newCart));
   };
 
   const updateQuantity = (itemId: number, change: number) => {
@@ -146,8 +127,7 @@ const Menu: React.FC = () => {
     }).filter(item => item.quantity > 0);
     
     setCart(newCart);
-    const cartKey = isGuestMode ? `guest_cart_table_${tableNumber}` : `cart_${user?.id}`;
-    localStorage.setItem(cartKey, JSON.stringify(newCart));
+    localStorage.setItem(`guest_cart_table_${tableNumber}`, JSON.stringify(newCart));
   };
 
   const getTotalPrice = () => {
@@ -160,19 +140,13 @@ const Menu: React.FC = () => {
       return;
     }
 
-    if (isGuestMode) {
-      // For guest orders, navigate to guest checkout
-      navigate('/guest-checkout', { 
-        state: { 
-          cart, 
-          tableNumber,
-          guestName 
-        } 
-      });
-    } else {
-      // For logged-in users, use regular checkout
-      navigate('/checkout', { state: { cart } });
-    }
+    navigate('/guest-checkout', { 
+      state: { 
+        cart, 
+        tableNumber,
+        guestName 
+      } 
+    });
   };
 
   const filteredItems = menuItems.filter(item =>
@@ -189,34 +163,24 @@ const Menu: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
       {/* Header */}
-      <div className="bg-white shadow-sm sticky top-0 z-10">
+      <div className="bg-white shadow-md sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Menu</h1>
-              {!isGuestMode && user && (
-                <button
-                  onClick={() => navigate('/my-orders')}
-                  className="text-sm text-orange-600 hover:text-orange-700 font-semibold"
-                >
-                  📋 My Orders
-                </button>
-              )}
-              {isGuestMode && (
-                <p className="text-sm text-gray-600 mt-1">
-                  🪑 Table {tableNumber} {guestName && `• ${guestName}`}
-                </p>
-              )}
+              <h1 className="text-3xl font-bold text-orange-600">🍽️ Dastarkhwan</h1>
+              <p className="text-sm text-gray-600 mt-1">
+                🪑 Table {tableNumber} {guestName && `• Welcome, ${guestName}!`}
+              </p>
             </div>
             <button
               onClick={() => setShowCart(true)}
-              className="relative p-2 bg-orange-500 text-white rounded-full hover:bg-orange-600"
+              className="relative p-3 bg-orange-500 text-white rounded-full hover:bg-orange-600 shadow-lg"
             >
-              <ShoppingCartIcon className="h-6 w-6" />
+              <ShoppingCartIcon className="h-7 w-7" />
               {cart.length > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center font-bold">
                   {cart.length}
                 </span>
               )}
@@ -228,10 +192,10 @@ const Menu: React.FC = () => {
             <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
             <input
               type="text"
-              placeholder="Search menu..."
+              placeholder="Search delicious food..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-3 border-2 border-orange-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             />
           </div>
 
@@ -239,22 +203,22 @@ const Menu: React.FC = () => {
           <div className="mt-4 flex gap-2 overflow-x-auto pb-2">
             <button
               onClick={() => setSelectedCategory(null)}
-              className={`px-4 py-2 rounded-full whitespace-nowrap ${
+              className={`px-4 py-2 rounded-full whitespace-nowrap font-medium ${
                 selectedCategory === null
-                  ? 'bg-orange-500 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  ? 'bg-orange-500 text-white shadow-md'
+                  : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-orange-300'
               }`}
             >
-              All
+              All Items
             </button>
             {categories.map(category => (
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-4 py-2 rounded-full whitespace-nowrap ${
+                className={`px-4 py-2 rounded-full whitespace-nowrap font-medium ${
                   selectedCategory === category.id
-                    ? 'bg-orange-500 text-white'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    ? 'bg-orange-500 text-white shadow-md'
+                    : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-orange-300'
                 }`}
               >
                 {category.name}
@@ -268,7 +232,7 @@ const Menu: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map(item => (
-            <div key={item.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div key={item.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow border-2 border-transparent hover:border-orange-300">
               {item.image_url && (
                 <img
                   src={item.image_url}
@@ -277,22 +241,22 @@ const Menu: React.FC = () => {
                 />
               )}
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-900">{item.name}</h3>
-                <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                <h3 className="text-xl font-bold text-gray-900">{item.name}</h3>
+                <p className="text-sm text-gray-600 mt-2 line-clamp-2">{item.description}</p>
                 <div className="flex justify-between items-center mt-4">
-                  <span className="text-xl font-bold text-orange-600">
+                  <span className="text-2xl font-bold text-orange-600">
                     Rs. {item.price.toFixed(2)}
                   </span>
                   <button
                     onClick={() => addToCart(item)}
                     disabled={!item.is_available}
-                    className={`px-4 py-2 rounded-lg font-medium ${
+                    className={`px-5 py-2 rounded-lg font-semibold text-sm ${
                       item.is_available
-                        ? 'bg-orange-500 text-white hover:bg-orange-600'
+                        ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-md'
                         : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     }`}
                   >
-                    {item.is_available ? 'Add to Cart' : 'Unavailable'}
+                    {item.is_available ? '+ Add' : 'Unavailable'}
                   </button>
                 </div>
               </div>
@@ -310,27 +274,28 @@ const Menu: React.FC = () => {
       {/* Guest Name Modal */}
       {showGuestNameModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full">
-            <h3 className="text-xl font-bold mb-4">Welcome! 👋</h3>
-            <p className="text-gray-600 mb-4">Please enter your name to continue ordering:</p>
+          <div className="bg-white rounded-xl p-6 max-w-md w-full shadow-2xl">
+            <h3 className="text-2xl font-bold mb-2">Welcome! 👋</h3>
+            <p className="text-gray-600 mb-6">Please enter your name to start ordering:</p>
             <input
               type="text"
               placeholder="Your name"
               value={guestName}
               onChange={(e) => setGuestName(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-orange-500"
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
               onKeyPress={(e) => e.key === 'Enter' && handleGuestNameSubmit()}
+              autoFocus
             />
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               <button
                 onClick={handleGuestNameSubmit}
-                className="flex-1 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600"
+                className="flex-1 bg-orange-500 text-white px-4 py-3 rounded-lg hover:bg-orange-600 font-semibold"
               >
                 Continue
               </button>
               <button
                 onClick={() => setShowGuestNameModal(false)}
-                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
+                className="px-4 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 font-semibold"
               >
                 Cancel
               </button>
@@ -342,13 +307,13 @@ const Menu: React.FC = () => {
       {/* Cart Sidebar */}
       {showCart && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
-          <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-xl flex flex-col">
+          <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col">
             {/* Cart Header */}
-            <div className="p-4 border-b flex justify-between items-center">
-              <h2 className="text-xl font-bold">Your Cart</h2>
+            <div className="p-6 bg-orange-500 text-white flex justify-between items-center">
+              <h2 className="text-2xl font-bold">Your Order</h2>
               <button
                 onClick={() => setShowCart(false)}
-                className="p-2 hover:bg-gray-100 rounded-full"
+                className="p-2 hover:bg-orange-600 rounded-full"
               >
                 <XMarkIcon className="h-6 w-6" />
               </button>
@@ -358,39 +323,40 @@ const Menu: React.FC = () => {
             <div className="flex-1 overflow-y-auto p-4">
               {cart.length === 0 ? (
                 <div className="text-center py-12">
-                  <p className="text-gray-500">Your cart is empty</p>
+                  <p className="text-gray-500 text-lg">Your cart is empty</p>
+                  <p className="text-gray-400 text-sm mt-2">Add some delicious items!</p>
                 </div>
               ) : (
                 <div className="space-y-4">
                   {cart.map(item => (
-                    <div key={item.id} className="flex gap-4 bg-gray-50 p-3 rounded-lg">
+                    <div key={item.id} className="flex gap-4 bg-orange-50 p-4 rounded-lg border-2 border-orange-100">
                       {item.image_url && (
                         <img
                           src={item.image_url}
                           alt={item.name}
-                          className="w-20 h-20 object-cover rounded"
+                          className="w-20 h-20 object-cover rounded-lg"
                         />
                       )}
                       <div className="flex-1">
-                        <h3 className="font-semibold">{item.name}</h3>
-                        <p className="text-orange-600 font-bold">Rs. {item.price.toFixed(2)}</p>
-                        <div className="flex items-center gap-2 mt-2">
+                        <h3 className="font-bold text-gray-900">{item.name}</h3>
+                        <p className="text-orange-600 font-bold text-lg">Rs. {item.price.toFixed(2)}</p>
+                        <div className="flex items-center gap-3 mt-2">
                           <button
                             onClick={() => updateQuantity(item.id, -1)}
-                            className="w-8 h-8 bg-gray-200 rounded-full hover:bg-gray-300"
+                            className="w-8 h-8 bg-orange-500 text-white rounded-full hover:bg-orange-600 font-bold"
                           >
                             -
                           </button>
-                          <span className="font-medium">{item.quantity}</span>
+                          <span className="font-bold text-lg">{item.quantity}</span>
                           <button
                             onClick={() => updateQuantity(item.id, 1)}
-                            className="w-8 h-8 bg-gray-200 rounded-full hover:bg-gray-300"
+                            className="w-8 h-8 bg-orange-500 text-white rounded-full hover:bg-orange-600 font-bold"
                           >
                             +
                           </button>
                           <button
                             onClick={() => removeFromCart(item.id)}
-                            className="ml-auto text-red-500 hover:text-red-700"
+                            className="ml-auto text-red-500 hover:text-red-700 font-semibold text-sm"
                           >
                             Remove
                           </button>
@@ -404,16 +370,16 @@ const Menu: React.FC = () => {
 
             {/* Cart Footer */}
             {cart.length > 0 && (
-              <div className="border-t p-4 space-y-4">
-                <div className="flex justify-between text-lg font-bold">
+              <div className="border-t-2 p-6 space-y-4 bg-gray-50">
+                <div className="flex justify-between text-xl font-bold">
                   <span>Total:</span>
                   <span className="text-orange-600">Rs. {getTotalPrice().toFixed(2)}</span>
                 </div>
                 <button
                   onClick={handleCheckout}
-                  className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600"
+                  className="w-full bg-orange-500 text-white py-4 rounded-lg font-bold text-lg hover:bg-orange-600 shadow-lg"
                 >
-                  Proceed to Checkout
+                  Place Order →
                 </button>
               </div>
             )}
@@ -424,4 +390,4 @@ const Menu: React.FC = () => {
   );
 };
 
-export default Menu;
+export default GuestOrder;

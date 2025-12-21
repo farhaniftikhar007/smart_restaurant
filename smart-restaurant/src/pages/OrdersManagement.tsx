@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 
 interface OrderItem {
   id: number;
@@ -32,7 +33,10 @@ const OrdersManagement: React.FC = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:8000/api/orders', {
+      const url = `${API_BASE_URL}/api/orders`;
+      console.log('Fetching orders from:', url);
+      
+      const response = await axios.get(url, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setOrders(response.data);
@@ -48,12 +52,14 @@ const OrdersManagement: React.FC = () => {
   const updateOrderStatus = async (orderId: number, newStatus: string) => {
     try {
       const token = localStorage.getItem('token');
+      const url = `${API_BASE_URL}/api/orders/${orderId}/status`;
+      
       await axios.patch(
-        `http://localhost:8000/api/orders/${orderId}/status`,
+        url,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      fetchOrders(); // Refresh the list
+      fetchOrders();
     } catch (err) {
       console.error('Error updating order status:', err);
       alert('Failed to update order status');
@@ -84,6 +90,7 @@ const OrdersManagement: React.FC = () => {
     return (
       <div className="bg-red-50 border border-red-200 rounded-lg p-4 m-4">
         <p className="text-red-800">Error: {error}</p>
+        <p className="text-sm text-gray-600 mt-2">API URL: {API_BASE_URL}</p>
         <button 
           onClick={fetchOrders}
           className="mt-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
@@ -125,7 +132,7 @@ const OrdersManagement: React.FC = () => {
                   )}
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl font-bold">${order.total_amount.toFixed(2)}</p>
+                  <p className="text-2xl font-bold">Rs. {order.total_amount.toFixed(2)}</p>
                   <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium mt-2 ${getStatusColor(order.status)}`}>
                     {order.status.toUpperCase()}
                   </span>

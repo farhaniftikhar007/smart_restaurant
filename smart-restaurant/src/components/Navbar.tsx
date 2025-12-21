@@ -45,6 +45,7 @@ const Navbar: React.FC = () => {
   const navItems = [
     { name: 'Home', path: '/', icon: HomeIcon },
     { name: 'Menu', path: '/menu', icon: MenuIcon },
+    { name: 'My Orders', path: '/my-orders', icon: UserIcon },
     { name: 'QR', path: '/scan-order', icon: MenuIcon },
     { name: 'Reservations', path: '/reservation', icon: CalendarIcon },
     { name: 'Reviews', path: '/reviews', icon: StarIcon },

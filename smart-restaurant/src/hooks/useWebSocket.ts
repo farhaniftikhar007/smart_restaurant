@@ -9,21 +9,25 @@ export const useWebSocket = () => {
   useEffect(() => {
     // Only connect if user is authenticated
     if (authService.isAuthenticated()) {
-      wsClient.connect();
+      const token = localStorage.getItem('token');
+      
+      if (token) {
+        wsClient.connect(token);
 
-      // Set up connection handlers
-      const handleOpen = () => setIsConnected(true);
-      const handleClose = () => setIsConnected(false);
+        // Set up connection handlers
+        const handleOpen = () => setIsConnected(true);
+        const handleClose = () => setIsConnected(false);
 
-      wsClient.on('connection_open', handleOpen);
-      wsClient.on('connection_close', handleClose);
+        wsClient.on('connection_open', handleOpen);
+        wsClient.on('connection_close', handleClose);
 
-      // Cleanup on unmount
-      return () => {
-        wsClient.off('connection_open', handleOpen);
-        wsClient.off('connection_close', handleClose);
-        wsClient.disconnect();
-      };
+        // Cleanup on unmount
+        return () => {
+          wsClient.off('connection_open', handleOpen);
+          wsClient.off('connection_close', handleClose);
+          wsClient.disconnect();
+        };
+      }
     }
   }, []);
 

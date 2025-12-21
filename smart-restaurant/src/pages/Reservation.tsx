@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../config/api";
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -128,7 +129,7 @@ const Reservation: React.FC = () => {
     setShowConfirmation(false);
 
     try {
-      const response = await fetch("http://localhost:8000/api/reservations/", {
+      const response = await fetch(`${API_BASE_URL}/api/reservations/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
