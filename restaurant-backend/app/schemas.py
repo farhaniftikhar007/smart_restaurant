@@ -120,8 +120,10 @@ class OrderStatusUpdate(BaseModel):
 class OrderResponse(BaseModel):
     id: int
     order_number: str
-    customer_id: int
+    customer_id: Optional[int] = None  # Optional for guest orders
     table_number: Optional[str] = None
+    guest_name: Optional[str] = None  # Guest name for non-authenticated orders
+    order_type: Optional[str] = None  # Order type: dine_in, takeout, delivery
     status: OrderStatus
     total_amount: float
     notes: Optional[str] = None

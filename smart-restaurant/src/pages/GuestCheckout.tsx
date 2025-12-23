@@ -1,7 +1,7 @@
-import { API_BASE_URL } from "../config/api";
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 
 interface CartItem {
   id: number;
@@ -16,6 +16,7 @@ const GuestCheckout: React.FC = () => {
   const { cart, tableNumber, guestName } = location.state || {};
 
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   if (!cart || !tableNumber) {
     navigate('/menu');
@@ -27,7 +28,9 @@ const GuestCheckout: React.FC = () => {
   };
 
   const handlePlaceOrder = async () => {
+    console.log('🛒 Placing order...', { cart, tableNumber, guestName });
     setSubmitting(true);
+    setError(null);
     
     try {
       const orderData = {
@@ -43,20 +46,31 @@ const GuestCheckout: React.FC = () => {
         order_type: 'dine_in'
       };
 
+      console.log('📤 Sending order data:', orderData);
+
       const response = await axios.post(`${API_BASE_URL}/api/orders/guest`, orderData);
 
-      if (response.data) {
+      console.log('✅ Order response:', response.data);
+
+      if (response.data && response.data.order_number) {
         // Clear cart
         localStorage.removeItem(`guest_cart_table_${tableNumber}`);
         
+        console.log('🔄 Navigating to order status:', response.data.order_number);
+        
         // Navigate to order status page
         navigate(`/order-status/${response.data.order_number}`, {
-          state: { tableNumber, guestName }
+          state: { tableNumber, guestName },
+          replace: true
         });
+      } else {
+        console.error('❌ No order number in response');
+        setError('Order placed but no order number received');
       }
     } catch (error: any) {
-      console.error('Error placing order:', error);
-      alert(error.response?.data?.detail || 'Failed to place order. Please try again.');
+      console.error('❌ Error placing order:', error);
+      console.error('Error response:', error.response?.data);
+      setError(error.response?.data?.detail || error.message || 'Failed to place order. Please try again.');
     } finally {
       setSubmitting(false);
     }
@@ -102,11 +116,19 @@ const GuestCheckout: React.FC = () => {
             <span className="text-orange-600">Rs. {getTotalPrice().toFixed(2)}</span>
           </div>
 
+          {/* Error Message */}
+          {error && (
+            <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
+              <p className="text-red-800">{error}</p>
+            </div>
+          )}
+
           {/* Actions */}
           <div className="flex gap-4">
             <button
               onClick={() => navigate(-1)}
-              className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50"
+              disabled={submitting}
+              className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 disabled:opacity-50"
             >
               Back to Menu
             </button>

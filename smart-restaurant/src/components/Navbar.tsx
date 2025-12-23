@@ -42,16 +42,24 @@ const Navbar: React.FC = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
-  const navItems = [
+  // Base navigation items for all users
+  const baseNavItems = [
     { name: 'Home', path: '/', icon: HomeIcon },
     { name: 'Menu', path: '/menu', icon: MenuIcon },
-    { name: 'My Orders', path: '/my-orders', icon: UserIcon },
-    { name: 'QR', path: '/scan-order', icon: MenuIcon },
     { name: 'Reservations', path: '/reservation', icon: CalendarIcon },
     { name: 'Reviews', path: '/reviews', icon: StarIcon },
     { name: 'Contact', path: '/contact', icon: PhoneIcon },
     { name: 'About', path: '/about', icon: InformationCircleIcon },
   ];
+
+  // Add My Orders for logged-in users only
+  const navItems = user 
+    ? [
+        ...baseNavItems.slice(0, 2),
+        { name: 'My Orders', path: '/my-orders', icon: UserIcon },
+        ...baseNavItems.slice(2)
+      ]
+    : baseNavItems;
 
   const navigation = [
     { name: 'Home', href: '/' },

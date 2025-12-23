@@ -16,6 +16,7 @@ import ScanOrder from './pages/ScanOrder';
 import ScanAndPay from './pages/ScanAndPay';
 import Menu from './pages/Menu';
 import GuestOrder from './pages/GuestOrder';
+import GuestCheckout from './pages/GuestCheckout';
 import OrderStatus from './pages/OrderStatus';
 import MyOrders from './pages/MyOrders';
 import Checkout from './pages/Checkout';
@@ -68,6 +69,8 @@ const AppRoutes: React.FC = () => {
           <Route path="/menu" element={<Menu />} />
           <Route path="/my-orders" element={<MyOrders />} />
           <Route path="/guest-order" element={<GuestOrder />} />
+          <Route path="/guest-checkout" element={<GuestCheckout />} />
+          <Route path="/order-status/:orderNumber" element={<OrderStatus />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
