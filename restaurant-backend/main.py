@@ -1,10 +1,11 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import uvicorn
 
 from app.database import engine, Base
-from app.routers import auth, menu, orders, restaurant, websocket, reservations, tables
+from app.routers import auth, menu, orders, restaurant, websocket, reservations, tables, upload
 from app.config import settings
 
 
@@ -20,6 +21,9 @@ app = FastAPI(
     title=settings.APP_NAME,
     lifespan=lifespan
 )
+
+# Mount static files for uploads
+app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 # CORS Configuration - Allow all origins for development
 app.add_middleware(
@@ -38,6 +42,7 @@ app.include_router(restaurant.router, prefix="/api/restaurant", tags=["Restauran
 app.include_router(websocket.router, prefix="/api/ws", tags=["WebSocket"])
 app.include_router(reservations.router, prefix="/api/reservations", tags=["Reservations"])
 app.include_router(tables.router, prefix="/api/tables", tags=["Tables"])
+app.include_router(upload.router, prefix="/api/upload", tags=["Upload"])
 
 @app.get("/")
 async def root():

@@ -14,6 +14,7 @@ interface Order {
   order_number: string;
   customer_id: number;
   table_number: number | null;
+  guest_name: string | null;
   status: string;
   total_amount: number;
   created_at: string;
@@ -129,6 +130,15 @@ const OrdersManagement: React.FC = () => {
                   </p>
                   {order.table_number && (
                     <p className="text-gray-600">Table: {order.table_number}</p>
+                  )}
+                  {order.guest_name && (
+                    <p className="text-gray-600">Guest: {order.guest_name}</p>
+                  )}
+                  {order.guest_name && (
+                    <p className="text-gray-600">Guest: {order.guest_name}</p>
+                  )}
+                  {order.guest_name && (
+                    <p className="text-gray-600">Guest: {order.guest_name}</p>
                   )}
                 </div>
                 <div className="text-right">

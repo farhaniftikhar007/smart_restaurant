@@ -82,6 +82,9 @@ class Order(Base):
     order_number = Column(String, unique=True, nullable=False)
     customer_id = Column(Integer, ForeignKey("users.id"))
     table_number = Column(String)
+    guest_name = Column(String)  # Guest name for non-authenticated orders
+    order_type = Column(String, default="dine_in")
+    order_type = Column(String, default="dine_in")  # Order type: dine_in, takeout, delivery
     status = Column(Enum(OrderStatus), default=OrderStatus.PENDING)
     total_amount = Column(Float, nullable=False)
     notes = Column(Text)

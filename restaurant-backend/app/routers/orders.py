@@ -320,3 +320,68 @@ async def track_order(order_number: str, db: Session = Depends(get_db)):
 
         )
 
+
+
+@router.post("/guest")
+async def create_guest_order(
+    order_data: dict,
+    db: Session = Depends(get_db)
+):
+    """Create order for guest (no authentication required)."""
+    logger.info("=" * 50)
+    logger.info("🛒 NEW GUEST ORDER!")
+    logger.info(f"Table: {order_data.get('table_number')}")
+    logger.info(f"Guest: {order_data.get('guest_name')}")
+    logger.info(f"Items: {len(order_data.get('items', []))}")
+    logger.info("=" * 50)
+    
+    try:
+        # Generate order number
+        order_number = generate_order_number()
+        
+        # Create order
+        db_order = Order(
+            order_number=order_number,
+            customer_id=None,  # No customer for guest orders
+            table_number=order_data.get('table_number'),
+            guest_name=order_data.get('guest_name'),
+            total_amount=order_data.get('total_amount'),
+            status=OrderStatus.PENDING,
+            order_type=order_data.get('order_type', 'dine_in')
+        )
+        
+        db.add(db_order)
+        db.flush()  # Get the order ID
+        
+        # Add order items
+        for item in order_data.get('items', []):
+            order_item = OrderItem(
+                order_id=db_order.id,
+                menu_item_id=item['menu_item_id'],
+                quantity=item['quantity'],
+                price=item['price']
+            )
+            db.add(order_item)
+        
+        db.commit()
+        db.refresh(db_order)
+        
+        logger.info(f"✅ Guest order created! Order #: {order_number}")
+        
+        return {
+            "id": db_order.id,
+            "order_number": db_order.order_number,
+            "table_number": db_order.table_number,
+            "guest_name": db_order.guest_name,
+            "total_amount": float(db_order.total_amount),
+            "status": db_order.status.value,
+            "created_at": db_order.created_at.isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"❌ Failed to create guest order: {str(e)}")
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to create order: {str(e)}"
+        )

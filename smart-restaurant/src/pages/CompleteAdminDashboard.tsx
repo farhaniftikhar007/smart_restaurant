@@ -7,6 +7,8 @@ import {
   ArrowRightOnRectangleIcon
 } from '@heroicons/react/24/outline';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config/api';
+import axios from 'axios';
 
 interface DashboardStats {
   totalOrders: number;
@@ -25,13 +27,57 @@ const CompleteAdminDashboard: React.FC = () => {
   });
 
   useEffect(() => {
-    setStats({
-      totalOrders: 45,
-      pendingOrders: 8,
-      todayRevenue: 1250.50,
-      activeReservations: 12
-    });
+    fetchDashboardStats();
   }, []);
+
+  const fetchDashboardStats = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      
+      // Fetch orders
+      const ordersRes = await axios.get(`${API_BASE_URL}/api/orders`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      
+      // Fetch reservations
+      const reservationsRes = await axios.get(`${API_BASE_URL}/api/reservations/`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      
+      const orders = ordersRes.data || [];
+      const reservations = reservationsRes.data || [];
+      
+      // Calculate stats
+      const totalOrders = orders.length;
+      const pendingOrders = orders.filter((o: any) => o.status === 'pending').length;
+      const todayRevenue = orders
+        .filter((o: any) => {
+          const orderDate = new Date(o.created_at).toDateString();
+          const today = new Date().toDateString();
+          return orderDate === today;
+        })
+        .reduce((sum: number, o: any) => sum + parseFloat(o.total_amount || 0), 0);
+      const activeReservations = reservations.filter((r: any) => 
+        r.status === 'pending' || r.status === 'confirmed'
+      ).length;
+      
+      setStats({
+        totalOrders,
+        pendingOrders,
+        todayRevenue,
+        activeReservations
+      });
+    } catch (error) {
+      console.error('Error fetching dashboard stats:', error);
+      // Keep default values on error
+      setStats({
+        totalOrders: 0,
+        pendingOrders: 0,
+        todayRevenue: 0,
+        activeReservations: 0
+      });
+    }
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
