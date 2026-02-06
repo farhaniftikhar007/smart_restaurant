@@ -129,7 +129,35 @@ async def check_availability(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=str(e)
         )
-
+@router.get("/search")
+async def search_reservation(
+    phone: str,
+    db: Session = Depends(get_db)
+):
+    """Search for the most recent reservation by phone number."""
+    logger.info(f"🔍 Searching reservation for phone: {phone}")
+    
+    # Simple search: get the latest reservation for this phone
+    reservation = db.query(Reservation).filter(
+        Reservation.phone == phone
+    ).order_by(Reservation.created_at.desc()).first()
+    
+    if not reservation:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Reservation not found"
+        )
+        
+    return {
+        "id": reservation.id,
+        "name": reservation.name,
+        "date": reservation.date.isoformat(),
+        "time": reservation.time,
+        "guests": reservation.guests,
+        "status": reservation.status,
+        "table_number": reservation.table_number,  # Important for user
+        "created_at": reservation.created_at.isoformat()
+    }
 
 @router.get("/")
 async def get_all_reservations(db: Session = Depends(get_db)):
@@ -153,6 +181,7 @@ async def get_all_reservations(db: Session = Depends(get_db)):
                 "time": r.time,
                 "guests": r.guests,
                 "special_requests": r.special_requests,
+                "table_number": r.table_number,  # Added
                 "status": r.status,
                 "created_at": r.created_at.isoformat()
             }
@@ -186,13 +215,20 @@ async def update_reservation_status(
             )
         
         new_status = status_data.get('status')
-        if new_status not in ['pending', 'confirmed', 'cancelled', 'completed']:
+        new_table_number = status_data.get('table_number')
+        
+        if new_status and new_status not in ['pending', 'confirmed', 'cancelled', 'completed']:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Invalid status"
             )
         
-        reservation.status = new_status
+        if new_status:
+            reservation.status = new_status
+            
+        if new_table_number:
+            reservation.table_number = new_table_number
+            
         db.commit()
         db.refresh(reservation)
         

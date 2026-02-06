@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../config/api';
 import axios from 'axios';
+import LiveOrderTimer from '../components/LiveOrderTimer';
 
 interface OrderItem {
   menu_item_id: number;
@@ -20,6 +21,8 @@ interface Order {
   created_at: string;
 }
 
+
+
 const MyOrders: React.FC = () => {
   const navigate = useNavigate();
   const [orders, setOrders] = useState<Order[]>([]);
@@ -28,13 +31,17 @@ const MyOrders: React.FC = () => {
 
   useEffect(() => {
     fetchOrders();
+
+    // Auto-refresh every 5 seconds
+    const intervalId = setInterval(fetchOrders, 5000);
+    return () => clearInterval(intervalId);
   }, []);
 
   const fetchOrders = async () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      
+
       if (!token) {
         navigate('/auth');
         return;
@@ -43,9 +50,9 @@ const MyOrders: React.FC = () => {
       const response = await axios.get(`${API_BASE_URL}/api/orders/my-orders`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      
+
       console.log('Orders response:', response.data);
-      
+
       // Check if response is an array
       if (Array.isArray(response.data)) {
         setOrders(response.data);
@@ -53,17 +60,17 @@ const MyOrders: React.FC = () => {
         console.error('Expected array, got:', response.data);
         setError('Invalid response format from server');
       }
-      
+
       setError(null);
     } catch (err: any) {
       console.error('Error fetching orders:', err);
-      
+
       // Handle different error types
       if (err.response) {
         // Server responded with error
-        const errorMsg = err.response.data?.detail || 
-                        err.response.data?.message || 
-                        JSON.stringify(err.response.data);
+        const errorMsg = err.response.data?.detail ||
+          err.response.data?.message ||
+          JSON.stringify(err.response.data);
         setError(`Server error: ${errorMsg}`);
       } else if (err.request) {
         // Request made but no response
@@ -185,7 +192,7 @@ const MyOrders: React.FC = () => {
                         Order #{order.order_number}
                       </h3>
                       <p className="text-sm text-gray-600">
-                        {new Date(order.created_at).toLocaleString()}
+                        <LiveOrderTimer createdAt={order.created_at} status={order.status} />
                       </p>
                       {order.table_number && (
                         <p className="text-sm text-gray-600">

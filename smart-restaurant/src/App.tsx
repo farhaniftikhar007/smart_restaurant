@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { DebugInfo } from './components/DebugInfo';
 import { useAuth } from './context/AuthContext';
 import Landing from './pages/Landing';
 import Auth from './components/Auth';
@@ -25,7 +24,6 @@ import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
 // Admin panel imports
 import AdminMenu from './pages/admin/modules/Menu';
-import AdminOrders from './pages/admin/modules/Orders';
 import OrdersManagement from './pages/OrdersManagement';
 import AdminTables from './pages/admin/modules/Tables';
 import AdminReservations from './pages/admin/modules/Reservations';

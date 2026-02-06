@@ -33,7 +33,7 @@ const Menu = () => {
       menuService.getMenu(),
       menuService.getCategories(),
     ]);
-    
+
     if (menuResult.success) setMenuItems(menuResult.data);
     if (categoriesResult.success) setCategories(categoriesResult.data);
     setLoading(false);
@@ -43,9 +43,9 @@ const Menu = () => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Validate file size (max 5MB)
-    if (file.size > 5 * 1024 * 1024) {
-      alert('Image size should be less than 5MB');
+    // Validate file size (max 10MB)
+    if (file.size > 10 * 1024 * 1024) {
+      alert('Image size should be less than 10MB');
       return;
     }
 
@@ -86,7 +86,7 @@ const Menu = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const data = {
       name: formData.name,
       description: formData.description,
@@ -136,18 +136,18 @@ const Menu = () => {
 
   const handleDelete = async (id: number) => {
     const confirmed = window.confirm('⚠️ Are you sure you want to delete this item? This action cannot be undone.');
-    
+
     if (!confirmed) {
       console.log('Delete cancelled by user');
       return;
     }
-    
+
     console.log('Starting delete for item ID:', id);
-    
+
     try {
       const result = await menuService.deleteMenuItem(id);
       console.log('Delete API response:', result);
-      
+
       if (result.success) {
         alert('✅ ' + result.message);
         await loadData(); // Reload the menu
@@ -237,9 +237,8 @@ const Menu = () => {
                   ${item.price.toFixed(2)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <span className={`px-2 py-1 text-xs rounded-full ${
-                    item.is_available ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                  }`}>
+                  <span className={`px-2 py-1 text-xs rounded-full ${item.is_available ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                    }`}>
                     {item.is_available ? 'Available' : 'Unavailable'}
                   </span>
                 </td>
@@ -323,7 +322,7 @@ const Menu = () => {
                           className="hidden"
                         />
                       </label>
-                      <p className="text-xs text-gray-500 mt-1">Max 5MB (JPEG, PNG, WebP)</p>
+                      <p className="text-xs text-gray-500 mt-1">Max 10MB (JPEG, PNG, WebP)</p>
                     </div>
                   </div>
                 </div>

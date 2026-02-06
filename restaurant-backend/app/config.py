@@ -23,9 +23,11 @@ class Settings(BaseSettings):
     # App
     APP_NAME: str = "Smart Restaurant API"
     DEBUG: bool = True
+    BASE_URL: str = "http://localhost:3000"
     
     class Config:
         env_file = ".env"
         case_sensitive = True
+        extra = "ignore"
 
 settings = Settings()

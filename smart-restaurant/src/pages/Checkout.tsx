@@ -22,7 +22,7 @@ const Checkout: React.FC = () => {
 
   const handlePlaceOrder = async () => {
     const token = localStorage.getItem('token');
-    
+
     if (!token) {
       alert('Please login first!');
       navigate('/auth');
@@ -57,13 +57,23 @@ const Checkout: React.FC = () => {
         }
       );
 
+
       alert(`Order placed successfully! Order #${response.data.order_number}`);
-            // Notify Menu.tsx to clear cart      window.dispatchEvent(new CustomEvent('clearCart'));
-      navigate('/menu', { state: { clearCart: true } });
-      
+      // Clear cart from local storage
+      const user = JSON.parse(localStorage.getItem('user') || '{}');
+      if (user && user.id) {
+        localStorage.removeItem(`cart_${user.id}`);
+      }
+
+      // Notify Menu.tsx to clear cart (if mounted/listening)
+      window.dispatchEvent(new CustomEvent('clearCart'));
+
+      // Navigate to My Orders page instead of Menu
+      navigate('/my-orders');
+
     } catch (error: any) {
       console.error('Order error:', error);
-      
+
       if (error.response?.status === 401) {
         alert('Session expired. Please login again.');
         navigate('/auth');
@@ -80,7 +90,7 @@ const Checkout: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold text-gray-900 mb-8">Order Summary</h1>
-          
+
           {cart.length === 0 ? (
             <div className="bg-white rounded-lg shadow-md p-6 text-center">
               <p className="text-gray-600 mb-4">Your cart is empty</p>
@@ -107,11 +117,11 @@ const Checkout: React.FC = () => {
                         <h3 className="font-medium">{item.name}</h3>
                         <p className="text-sm text-gray-600">Quantity: {item.quantity}</p>
                       </div>
-                      <p className="font-medium">${(item.price * item.quantity).toFixed(2)}</p>
+                      <p className="font-medium">Rs. {(item.price * item.quantity).toFixed(2)}</p>
                     </div>
                   ))}
                 </div>
-                
+
                 <div className="mt-6">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Special Instructions (Optional)
@@ -124,11 +134,11 @@ const Checkout: React.FC = () => {
                     rows={3}
                   />
                 </div>
-                
+
                 <div className="mt-6 pt-4 border-t">
                   <div className="flex justify-between items-center text-lg font-semibold">
                     <span>Total</span>
-                    <span>${cartTotal.toFixed(2)}</span>
+                    <span>Rs. {cartTotal.toFixed(2)}</span>
                   </div>
                 </div>
               </div>

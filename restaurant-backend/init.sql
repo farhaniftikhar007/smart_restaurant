@@ -1,0 +1,2 @@
+-- This file will initialize the database with required tables
+-- Add your database schema here if needed

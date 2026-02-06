@@ -1,0 +1,2489 @@
+│   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── binary-extensions.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   └── package.json
+│   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │   ├── package.json
+│   │   │   ├── chromium-versions.json
+│   │   │   ├── full-chromium-versions.json
+│   │   │   ├── full-versions.json
+│   │   │   ├── package.json
+│   │   │   └── versions.json
+│   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │       └── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │   ├── package.json
+│   │   │   ├── tsconfig.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │       └── tsconfig.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   └── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │       │       │   ├── package.json
+│   │   │       │       ├── package.json
+│   │   │       │   │   │   ├── package.json
+│   │   │       │   │   ├── package.json
+│   │   │       │       │   ├── package.json
+│   │   │       │       ├── package.json
+│   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── core.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │       └── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── db.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │       └── package.json
+│   │   │   ├── package.json
+│   │   │   └── package.json
+│   │   │   └── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   └── package.json
+│   │   │   ├── package.json
+│   │   │       └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │       ├── package.json
+│   │   │   │   │   └── envs.json
+│   │   │   │       └── release-schedule.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │       └── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │       └── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   ├── core.json
+│   │   │   ├── package.json
+│   │   │       │           └── package.json
+│   │   │       │   │   ├── package.json
+│   │   │       │   │   └── package.json
+│   │   │       │   │   └── package.json
+│   │   │       │   │   └── package.json
+│   │   │       │   │   └── package.json
+│   │   │       │   │   └── package.json
+│   │   │       │   │   └── package.json
+│   │   │       │   │   ├── lerna.json
+│   │   │       │   │   ├── package.json
+│   │   │       │   │       │   └── package.json
+│   │   │       │   │           └── package.json
+│   │   │       │   │       ├── package.json
+│   │   │       │   │       └── package.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │       │   │   └── package.json
+│   │   │       │       └── package.json
+│   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │       └── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │       ├── package.json
+│   │   │       │   │   │   └── tsconfig.json
+│   │   │       │   │   │   └── tsconfig.json
+│   │   │       │   │   │   └── tsconfig.json
+│   │   │       │   │       ├── tsconfig.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   └── package.json
+│   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │       ├── package.json
+│   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   ├── typesMap.json
+│   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │       └── diagnosticMessages.generated.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │   │   ├── package.json
+│   │       │   │   ├── package.json
+│   │       ├── package.json
+│   ├── package.json
+│   ├── package-lock.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── data.json
+│   │   │   │   │       ├── json-schema-draft-04.json
+│   │   │   │   │       ├── json-schema-draft-06.json
+│   │   │   │   │       ├── json-schema-draft-07.json
+│   │   │   │   │       └── json-schema-secure.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   │   │   ├── data.json
+│   │   │   │   │   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   │   │   │   │   ├── format.json
+│   │   │   │   │   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   │   │   │   │   └── validation.json
+│   │   │   │   │   │   │   │   │   └── schema.json
+│   │   │   │   │   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   │   │   │   │   ├── format-annotation.json
+│   │   │   │   │   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   │   │   │   │   ├── unevaluated.json
+│   │   │   │   │   │   │   │   │   │   └── validation.json
+│   │   │   │   │   │   │   │   │   └── schema.json
+│   │   │   │   │   │   │   │   ├── json-schema-draft-06.json
+│   │   │   │   │   │   │   │   ├── json-schema-draft-07.json
+│   │   │   │   │   │   │   │   ├── json-schema-secure.json
+│   │   │   │   │   │   │   │   ├── data.json
+│   │   │   │   │   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   │   │   │   │   ├── format.json
+│   │   │   │   │   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   │   │   │   │   └── validation.json
+│   │   │   │   │   │   │   │   │   └── schema.json
+│   │   │   │   │   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   │   │   │   │   ├── format-annotation.json
+│   │   │   │   │   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   │   │   │   │   ├── unevaluated.json
+│   │   │   │   │   │   │   │   │   │   └── validation.json
+│   │   │   │   │   │   │   │   │   └── schema.json
+│   │   │   │   │   │   │   │   ├── json-schema-draft-06.json
+│   │   │   │   │   │   │   │   ├── json-schema-draft-07.json
+│   │   │   │   │   │   │   │   ├── json-schema-secure.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── bower.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   │   ├── da.json
+│   │   │   │   │   ├── de.json
+│   │   │   │   │   ├── el.json
+│   │   │   │   │   ├── es.json
+│   │   │   │   │   ├── eu.json
+│   │   │   │   │   ├── fr.json
+│   │   │   │   │   ├── he.json
+│   │   │   │   │   ├── it.json
+│   │   │   │   │   ├── ja.json
+│   │   │   │   │   ├── ko.json
+│   │   │   │   │   ├── nl.json
+│   │   │   │   │   ├── no_NB.json
+│   │   │   │   │   ├── pl.json
+│   │   │   │   │   ├── pt_BR.json
+│   │   │   │   │   ├── _template.json
+│   │   │   │   │   ├── zh_CN.json
+│   │   │   │   │   └── zh_TW.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── sri-history.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── corejs2-built-ins.json
+│   │   │   │   │   │   ├── corejs3-shipped-proposals.json
+│   │   │   │   │   │   ├── native-modules.json
+│   │   │   │   │   │   ├── overlapping-plugins.json
+│   │   │   │   │   │   ├── plugin-bugfixes.json
+│   │   │   │   │   │   └── plugins.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   │   └── visitor-keys.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── schema.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── component.json
+│   │   │   │   ├── package.json
+│   │   │   │       │       ├── package.json
+│   │   │   │       │       ├── tsconfig.json
+│   │   │   │       ├── package.json
+│   │   │   │       └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── binary-extensions.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── component.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   │   ├── big5-added.json
+│   │   │   │   │   │   │   │   ├── cp936.json
+│   │   │   │   │   │   │   │   ├── cp949.json
+│   │   │   │   │   │   │   │   ├── cp950.json
+│   │   │   │   │   │   │   │   ├── eucjp.json
+│   │   │   │   │   │   │   │   ├── gb18030-ranges.json
+│   │   │   │   │   │   │   │   ├── gbk-added.json
+│   │   │   │   │   │   │   │   └── shiftjis.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── builtin-modules.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── vendors.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package-support.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── component.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── data.json
+│   │   │   │   ├── entries.json
+│   │   │   │   ├── external.json
+│   │   │   │   ├── modules-by-versions.json
+│   │   │   │   ├── modules.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── cssdb.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── options.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── options.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   │   └── patch.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── inheritance.json
+│   │   │   │   │   │   │   └── inheritance.schema.json
+│   │   │   │   │   │   │   ├── at-rules.json
+│   │   │   │   │   │   │   ├── at-rules.schema.json
+│   │   │   │   │   │   │   ├── definitions.json
+│   │   │   │   │   │   │   ├── properties.json
+│   │   │   │   │   │   │   ├── properties.schema.json
+│   │   │   │   │   │   │   ├── selectors.json
+│   │   │   │   │   │   │   ├── selectors.schema.json
+│   │   │   │   │   │   │   ├── syntaxes.json
+│   │   │   │   │   │   │   ├── syntaxes.schema.json
+│   │   │   │   │   │   │   ├── types.json
+│   │   │   │   │   │   │   ├── types.schema.json
+│   │   │   │   │   │   │   ├── units.json
+│   │   │   │   │   │   │   └── units.schema.json
+│   │   │   │   │   │   │   ├── css.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── named_colors.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   │   └── patch.json
+│   │   │   │   │   └── default-syntax.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── component.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── legacy-error-codes.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       ├── tsconfig.json
+│   │   │   │       └── tslint.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── chromium-versions.json
+│   │   │   │   ├── full-chromium-versions.json
+│   │   │   │   ├── full-versions.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── versions.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── tsconfig.json
+│   │   │   │   │       └── tslint.json
+│   │   │   │       ├── package.json
+│   │   │   │           ├── tsconfig.json
+│   │   │   │           └── tslint.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── decode.json
+│   │   │   │   │       ├── entities.json
+│   │   │   │   │       ├── legacy.json
+│   │   │   │   │       └── xml.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── caseFolding.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── index.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── globals.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   │   ├── replacements.json
+│   │   │   │   │   └── rule-type-list.json
+│   │   │   │   │   │   │   ├── formatters-meta.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── globals.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   │   │   └── recommended.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── globals.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       │           └── package.json
+│   │   │   │   │   │       │   │   ├── package.json
+│   │   │   │   │   │       │   │   └── package.json
+│   │   │   │   │   │       │   │   └── package.json
+│   │   │   │   │   │       │   │   └── package.json
+│   │   │   │   │   │       │   │   └── package.json
+│   │   │   │   │   │       │   │   └── package.json
+│   │   │   │   │   │       │   │   └── package.json
+│   │   │   │   │   │       │   │   └── package.json
+│   │   │   │   │   │       │   │   └── package.json
+│   │   │   │   │   │       │   │   └── package.json
+│   │   │   │   │   │       │   │   ├── lerna.json
+│   │   │   │   │   │       │   │   ├── package.json
+│   │   │   │   │   │       │   │       │   └── package.json
+│   │   │   │   │   │       │   │           └── package.json
+│   │   │   │   │   │       │   │       ├── package.json
+│   │   │   │   │   │       │   │   └── package.json
+│   │   │   │   │   │       │   │       └── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── options.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── component.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   └── test.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── options.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── component.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   │       │   │   ├── package.json
+│   │   │   │   │       │       ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── ForkTsCheckerWebpackPluginOptions.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── globals.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │       │       │   ├── package.json
+│   │   │   │       │       ├── package.json
+│   │   │   │       │       │   ├── package.json
+│   │   │   │       │       ├── package.json
+│   │   │   │       │   │   │   ├── package.json
+│   │   │   │       │   │   ├── package.json
+│   │   │   │       │       │   ├── package.json
+│   │   │   │       │       ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── component.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── renovate.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   │   │   ├── big5-added.json
+│   │   │   │   │   │   ├── cp936.json
+│   │   │   │   │   │   ├── cp949.json
+│   │   │   │   │   │   ├── cp950.json
+│   │   │   │   │   │   ├── eucjp.json
+│   │   │   │   │   │   ├── gb18030-ranges.json
+│   │   │   │   │   │   ├── gbk-added.json
+│   │   │   │   │   │   └── shiftjis.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │       │   │   ├── package.json
+│   │   │   │       │   │   ├── package.json
+│   │   │   │       │   │   ├── package.json
+│   │   │   │       │   │   ├── package.json
+│   │   │   │       │       ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── core.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── component.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   │   └── package.json
+│   │   │   │   │   │           ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   │   └── package.json
+│   │   │   │   │   │           ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │       └── package.json
+│   │   │   │   │   │           ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   │   └── package.json
+│   │   │   │   │   │           ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   └── package.json
+│   │   │   │   │   │           ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │           ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   │   │       └── package.json
+│   │   │   │   │   │           ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │           ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   └── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   │       └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │           ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   │       ├── package.json
+│   │   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   └── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   │   │       ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │       ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │       ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       │       ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   │       │   ├── js-globals.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       │   └── store.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── collection.json
+│   │   │   │   │       ├── extlang.json
+│   │   │   │   │       ├── grandfathered.json
+│   │   │   │   │       ├── index.json
+│   │   │   │   │       ├── language.json
+│   │   │   │   │       ├── macrolanguage.json
+│   │   │   │   │       ├── meta.json
+│   │   │   │   │       ├── private-use.json
+│   │   │   │   │       ├── redundant.json
+│   │   │   │   │       ├── region.json
+│   │   │   │   │       ├── registry.json
+│   │   │   │   │       ├── script.json
+│   │   │   │   │       ├── special.json
+│   │   │   │   │       └── variant.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── bower.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   │   ├── inheritance.json
+│   │   │   │   │   └── inheritance.schema.json
+│   │   │   │   │   ├── at-rules.json
+│   │   │   │   │   ├── at-rules.schema.json
+│   │   │   │   │   ├── definitions.json
+│   │   │   │   │   ├── properties.json
+│   │   │   │   │   ├── properties.schema.json
+│   │   │   │   │   ├── selectors.json
+│   │   │   │   │   ├── selectors.schema.json
+│   │   │   │   │   ├── syntaxes.json
+│   │   │   │   │   ├── syntaxes.schema.json
+│   │   │   │   │   ├── types.json
+│   │   │   │   │   ├── types.schema.json
+│   │   │   │   │   ├── units.json
+│   │   │   │   │   └── units.schema.json
+│   │   │   │   │   ├── css.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── types.json
+│   │   │   │   ├── db.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── loader-options.json
+│   │   │   │   │   ├── plugin-options.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │       └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       │   │   ├── package.json
+│   │   │   │       │       ├── package.json
+│   │   │   │       └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   │   │   └── envs.json
+│   │   │   │   │       └── release-schedule.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package-support.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │       └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │       └── package.json
+│   │   │   │   │       │   │   └── package.json
+│   │   │   │   │       │       └── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── decls.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── options.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── listStyleTypes.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── fromInitial.json
+│   │   │   │   │   │   └── toInitial.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package-support.json
+│   │   │   │   │   │   │   └── patch.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── inheritance.json
+│   │   │   │   │   │   │   └── inheritance.schema.json
+│   │   │   │   │   │   │   ├── at-rules.json
+│   │   │   │   │   │   │   ├── at-rules.schema.json
+│   │   │   │   │   │   │   ├── definitions.json
+│   │   │   │   │   │   │   ├── properties.json
+│   │   │   │   │   │   │   ├── properties.schema.json
+│   │   │   │   │   │   │   ├── selectors.json
+│   │   │   │   │   │   │   ├── selectors.schema.json
+│   │   │   │   │   │   │   ├── syntaxes.json
+│   │   │   │   │   │   │   ├── syntaxes.schema.json
+│   │   │   │   │   │   │   ├── types.json
+│   │   │   │   │   │   │   ├── types.schema.json
+│   │   │   │   │   │   │   ├── units.json
+│   │   │   │   │   │   │   └── units.schema.json
+│   │   │   │   │   │   │   ├── css.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── build-info.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       │   │   ├── big5-added.json
+│   │   │   │   │       │   │   ├── cp936.json
+│   │   │   │   │       │   │   ├── cp949.json
+│   │   │   │   │       │   │   ├── cp950.json
+│   │   │   │   │       │   │   ├── eucjp.json
+│   │   │   │   │       │   │   ├── gb18030-ranges.json
+│   │   │   │   │       │   │   ├── gbk-added.json
+│   │   │   │   │       │   │   └── shiftjis.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │       └── package.json
+│   │   │   │   ├── build-info.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │       │   ├── package.json
+│   │   │   │   │   │       │   ├── options.json
+│   │   │   │   │   │       │   ├── options.json
+│   │   │   │   │   │       │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   │       │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── options.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   │   │   ├── options.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── options.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── core.json
+│   │   │   │   ├── package.json
+│   │   │   │       │           └── package.json
+│   │   │   │       │   │   ├── package.json
+│   │   │   │       │   │   └── package.json
+│   │   │   │       │   │   └── package.json
+│   │   │   │       │   │   └── package.json
+│   │   │   │       │   │   └── package.json
+│   │   │   │       │   │   └── package.json
+│   │   │   │       │   │   └── package.json
+│   │   │   │       │   │   ├── lerna.json
+│   │   │   │       │   │   ├── package.json
+│   │   │   │       │   │       │   └── package.json
+│   │   │   │       │   │           └── package.json
+│   │   │   │       │   │       ├── package.json
+│   │   │   │       │   │       └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │       └── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       │       └── package.json
+│   │   │   │       │           ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       ├── CHANGELOG.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── options.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   │   │   ├── data.json
+│   │   │   │   │   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   │   │   │   │   ├── format.json
+│   │   │   │   │   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   │   │   │   │   └── validation.json
+│   │   │   │   │   │   │   │   │   └── schema.json
+│   │   │   │   │   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   │   │   │   │   ├── format-annotation.json
+│   │   │   │   │   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   │   │   │   │   ├── unevaluated.json
+│   │   │   │   │   │   │   │   │   │   └── validation.json
+│   │   │   │   │   │   │   │   │   └── schema.json
+│   │   │   │   │   │   │   │   ├── json-schema-draft-06.json
+│   │   │   │   │   │   │   │   ├── json-schema-draft-07.json
+│   │   │   │   │   │   │   │   ├── json-schema-secure.json
+│   │   │   │   │   │   │   │   ├── data.json
+│   │   │   │   │   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   │   │   │   │   ├── format.json
+│   │   │   │   │   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   │   │   │   │   └── validation.json
+│   │   │   │   │   │   │   │   │   └── schema.json
+│   │   │   │   │   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   │   │   │   │   ├── format-annotation.json
+│   │   │   │   │   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   │   │   │   │   ├── unevaluated.json
+│   │   │   │   │   │   │   │   │   │   └── validation.json
+│   │   │   │   │   │   │   │   │   └── schema.json
+│   │   │   │   │   │   │   │   ├── json-schema-draft-06.json
+│   │   │   │   │   │   │   │   ├── json-schema-draft-07.json
+│   │   │   │   │   │   │   │   ├── json-schema-secure.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── component.json
+│   │   │   │   │   │   │       ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── component.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── codes.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── bower.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── codes.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── options.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │       ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       │   │   ├── package.json
+│   │   │   │   │       │       ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │       ├── renovate.json
+│   │   │   │           │   │   ├── config.json
+│   │   │   │           │   │   ├── config.json
+│   │   │   │           │   │   ├── config.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── procedure.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── foreignNames.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │       ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── options.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   │   └── tsconfig.json
+│   │   │   │   │   │   │   │   └── tsconfig.json
+│   │   │   │   │   │   │   │   └── tsconfig.json
+│   │   │   │   │   │   │       ├── tsconfig.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │           ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       │   │   ├── package.json
+│   │   │   │       │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── mappingTable.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── bower.json
+│   │   │   │   ├── component.json
+│   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       │   └── tsconfig-named.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       │   └── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   │       │       └── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │           ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   └── types-metadata.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │   ├── typesMap.json
+│   │   │   │   │   │   └── diagnosticMessages.generated.json
+│   │   │   │   │       └── diagnosticMessages.generated.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │       │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── _container.json
+│   │   │   │   │   │   │   ├── AssetGeneratorOptions.json
+│   │   │   │   │   │   │   ├── AssetInlineGeneratorOptions.json
+│   │   │   │   │   │   │   ├── AssetParserOptions.json
+│   │   │   │   │   │   │   └── AssetResourceGeneratorOptions.json
+│   │   │   │   │   │   ├── BannerPlugin.json
+│   │   │   │   │   │   │   ├── ContainerPlugin.json
+│   │   │   │   │   │   │   ├── ContainerReferencePlugin.json
+│   │   │   │   │   │   │   ├── ExternalsType.json
+│   │   │   │   │   │   │   └── ModuleFederationPlugin.json
+│   │   │   │   │   │   │   ├── CssAutoGeneratorOptions.json
+│   │   │   │   │   │   │   ├── CssAutoParserOptions.json
+│   │   │   │   │   │   │   ├── CssGeneratorOptions.json
+│   │   │   │   │   │   │   ├── CssGlobalGeneratorOptions.json
+│   │   │   │   │   │   │   ├── CssGlobalParserOptions.json
+│   │   │   │   │   │   │   ├── CssModuleGeneratorOptions.json
+│   │   │   │   │   │   │   ├── CssModuleParserOptions.json
+│   │   │   │   │   │   │   └── CssParserOptions.json
+│   │   │   │   │   │   │   └── ProfilingPlugin.json
+│   │   │   │   │   │   ├── DllPlugin.json
+│   │   │   │   │   │   ├── DllReferencePlugin.json
+│   │   │   │   │   │   ├── HashedModuleIdsPlugin.json
+│   │   │   │   │   │   │   ├── OccurrenceChunkIdsPlugin.json
+│   │   │   │   │   │   │   └── OccurrenceModuleIdsPlugin.json
+│   │   │   │   │   │   ├── IgnorePlugin.json
+│   │   │   │   │   │   │   ├── JsonModulesPluginGenerator.json
+│   │   │   │   │   │   │   └── JsonModulesPluginParser.json
+│   │   │   │   │   │   ├── LoaderOptionsPlugin.json
+│   │   │   │   │   │   │   ├── AggressiveSplittingPlugin.json
+│   │   │   │   │   │   │   ├── LimitChunkCountPlugin.json
+│   │   │   │   │   │   │   ├── MergeDuplicateChunksPlugin.json
+│   │   │   │   │   │   │   └── MinChunkSizePlugin.json
+│   │   │   │   │   │   ├── ProgressPlugin.json
+│   │   │   │   │   │   │   └── HttpUriPlugin.json
+│   │   │   │   │   │   │   ├── ConsumeSharedPlugin.json
+│   │   │   │   │   │   │   ├── ProvideSharedPlugin.json
+│   │   │   │   │   │   │   └── SharePlugin.json
+│   │   │   │   │   │   ├── SourceMapDevToolPlugin.json
+│   │   │   │   │   │   └── WatchIgnorePlugin.json
+│   │   │   │   │   ├── _sharing.json
+│   │   │   │   │   └── WebpackOptions.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── labels-to-names.json
+│   │   │   │   │   ├── supported-names.json
+│   │   │   │   │       │   │   ├── big5-added.json
+│   │   │   │   │       │   │   ├── cp936.json
+│   │   │   │   │       │   │   ├── cp949.json
+│   │   │   │   │       │   │   ├── cp950.json
+│   │   │   │   │       │   │   ├── eucjp.json
+│   │   │   │   │       │   │   ├── gb18030-ranges.json
+│   │   │   │   │       │   │   ├── gbk-added.json
+│   │   │   │   │       │   │   └── shiftjis.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   └── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   │   ├── cdn-details.json
+│   │   │   │   │   │   ├── GenerateSWOptions.json
+│   │   │   │   │   │   ├── GetManifestOptions.json
+│   │   │   │   │   │   ├── InjectManifestOptions.json
+│   │   │   │   │   │   ├── WebpackGenerateSWOptions.json
+│   │   │   │   │   │   └── WebpackInjectManifestOptions.json
+│   │   │   │   │   │   │   │   ├── data.json
+│   │   │   │   │   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   │   │   │   │   ├── format.json
+│   │   │   │   │   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   │   │   │   │   └── validation.json
+│   │   │   │   │   │   │   │   │   └── schema.json
+│   │   │   │   │   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   │   │   │   │   ├── format-annotation.json
+│   │   │   │   │   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   │   │   │   │   ├── unevaluated.json
+│   │   │   │   │   │   │   │   │   │   └── validation.json
+│   │   │   │   │   │   │   │   │   └── schema.json
+│   │   │   │   │   │   │   │   ├── json-schema-draft-06.json
+│   │   │   │   │   │   │   │   ├── json-schema-draft-07.json
+│   │   │   │   │   │   │   │   ├── json-schema-secure.json
+│   │   │   │   │   │   │   │   ├── data.json
+│   │   │   │   │   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   │   │   │   │   ├── format.json
+│   │   │   │   │   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   │   │   │   │   └── validation.json
+│   │   │   │   │   │   │   │   │   └── schema.json
+│   │   │   │   │   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   │   │   │   │   ├── format-annotation.json
+│   │   │   │   │   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   │   │   │   │   ├── unevaluated.json
+│   │   │   │   │   │   │   │   │   │   └── validation.json
+│   │   │   │   │   │   │   │   │   └── schema.json
+│   │   │   │   │   │   │   │   ├── json-schema-draft-06.json
+│   │   │   │   │   │   │   │   ├── json-schema-draft-07.json
+│   │   │   │   │   │   │   │   ├── json-schema-secure.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │       ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   │   ├── mappingTable.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── cdn-details.json
+│   │   │   │   │   │   ├── GenerateSWOptions.json
+│   │   │   │   │   │   ├── GetManifestOptions.json
+│   │   │   │   │   │   ├── InjectManifestOptions.json
+│   │   │   │   │   │   ├── WebpackGenerateSWOptions.json
+│   │   │   │   │   │   └── WebpackInjectManifestOptions.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── tsconfig.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   ├── package.json
+│   │   │   │       ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   │   └── package.json
+│   │   │   │   │   ├── be.json
+│   │   │   │   │   ├── de.json
+│   │   │   │   │   ├── en.json
+│   │   │   │   │   ├── es.json
+│   │   │   │   │   ├── fi.json
+│   │   │   │   │   ├── fr.json
+│   │   │   │   │   ├── hi.json
+│   │   │   │   │   ├── hu.json
+│   │   │   │   │   ├── id.json
+│   │   │   │   │   ├── it.json
+│   │   │   │   │   ├── ja.json
+│   │   │   │   │   ├── ko.json
+│   │   │   │   │   ├── nb.json
+│   │   │   │   │   ├── nl.json
+│   │   │   │   │   ├── nn.json
+│   │   │   │   │   ├── pirate.json
+│   │   │   │   │   ├── pl.json
+│   │   │   │   │   ├── pt_BR.json
+│   │   │   │   │   ├── pt.json
+│   │   │   │   │   ├── ru.json
+│   │   │   │   │   ├── th.json
+│   │   │   │   │   ├── tr.json
+│   │   │   │   │   ├── zh_CN.json
+│   │   │   │   │   └── zh_TW.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │   │   ├── package.json
+│   │   │       │   ├── package.json
+│   │   │           ├── package.json
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   │   ├── manifest.json
+│   │   │   ├── App.test.tsx
+│   │   │   ├── App.tsx
+│   │   │   │   │   └── AdminSidebar.tsx
+│   │   │   │   ├── AdminDashboard.tsx
+│   │   │   │   ├── Auth.tsx
+│   │   │   │   ├── Cart.tsx
+│   │   │   │   ├── CustomerDashboard.tsx
+│   │   │   │   ├── Dashboard.tsx
+│   │   │   │   ├── DietaryFilter.tsx
+│   │   │   │   ├── FoodImage.tsx
+│   │   │   │   ├── Hero.tsx
+│   │   │   │   ├── Home.tsx
+│   │   │   │   ├── ImageSlider.tsx
+│   │   │   │   ├── Layout.tsx
+│   │   │   │   ├── MenuItemDetail.tsx
+│   │   │   │   ├── MenuItemForm.tsx
+│   │   │   │   ├── Menu.tsx
+│   │   │   │   ├── Navbar.tsx
+│   │   │   │   ├── Orders.tsx
+│   │   │   │   ├── OrderTracking.tsx
+│   │   │   │   ├── PrivateRoute.tsx
+│   │   │   │   ├── ProtectedRoute.tsx
+│   │   │   │   ├── QRCodeGenerator.tsx
+│   │   │   │   ├── QRScanner.tsx
+│   │   │   │   ├── QrScanPage.tsx
+│   │   │   │   ├── Reviews.tsx
+│   │   │   │   └── Settings.tsx
+│   │   │   │   ├── AuthContext.tsx
+│   │   │   │   └── ThemeContext.tsx
+│   │   │   ├── index.tsx
+│   │   │   │   ├── About.tsx
+│   │   │   │   │   │   ├── Feedback.tsx
+│   │   │   │   │   │   ├── Menu.tsx
+│   │   │   │   │   │   ├── Orders.tsx
+│   │   │   │   │   │   ├── Payments.tsx
+│   │   │   │   │   │   ├── Reports.tsx
+│   │   │   │   │   │   ├── Reservations.tsx
+│   │   │   │   │   │   ├── Settings.tsx
+│   │   │   │   │   │   ├── Staff.tsx
+│   │   │   │   │   │   └── Tables.tsx
+│   │   │   │   │   └── Sidebar.tsx
+│   │   │   │   ├── Checkout.tsx
+│   │   │   │   ├── Contact.tsx
+│   │   │   │   ├── ContactUs.tsx
+│   │   │   │   ├── Landing.tsx
+│   │   │   │   ├── Login.tsx
+│   │   │   │   ├── Menu.tsx
+│   │   │   │   ├── OrderMenu.tsx
+│   │   │   │   ├── OrderTracking.tsx
+│   │   │   │   ├── Register.tsx
+│   │   │   │   ├── Reservation.tsx
+│   │   │   │   ├── Reviews.tsx
+│   │   │   │   ├── ScanAndPay.tsx
+│   │   │   │   ├── ScanOrder.tsx
+│   │   │   │   ├── Settings.tsx
+│   │   │   │   └── TopSelling.tsx
+│   │   └── tsconfig.json
+│       │           │   │   ├── distutils.schema.json
+│       │           │   │   ├── setuptools.schema.json
+├── package-lock.json

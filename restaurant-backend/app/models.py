@@ -137,6 +137,7 @@ class Reservation(Base):
     time = Column(String, nullable=False)
     guests = Column(Integer, nullable=False)
     special_requests = Column(Text, nullable=True)
+    table_number = Column(String, nullable=True)  # Added table number
     status = Column(String, default="pending")  # pending, confirmed, cancelled
     created_at = Column(DateTime, default=datetime.utcnow)
     

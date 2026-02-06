@@ -13,11 +13,11 @@ const Menu: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
   const [searchParams] = useSearchParams();
-  
+
   // Get table number from URL query parameter
   const tableNumber = searchParams.get('table');
   const isGuestMode = !!tableNumber; // Guest mode if table parameter exists
-  
+
   const [menuItems, setMenuItems] = useState<APIMenuItem[]>([]);
   const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -27,6 +27,8 @@ const Menu: React.FC = () => {
   const [showCart, setShowCart] = useState(false);
   const [guestName, setGuestName] = useState('');
   const [showGuestNameModal, setShowGuestNameModal] = useState(false);
+  const [recommendations, setRecommendations] = useState<APIMenuItem[]>([]);
+  const [showRecommendationsModal, setShowRecommendationsModal] = useState(false);
 
   // Clear cart after successful order
   useEffect(() => {
@@ -44,7 +46,7 @@ const Menu: React.FC = () => {
     if (savedCart) {
       setCart(JSON.parse(savedCart));
     }
-    
+
     // Load guest name if exists
     if (isGuestMode) {
       const savedGuestName = localStorage.getItem(`guest_name_table_${tableNumber}`);
@@ -57,22 +59,29 @@ const Menu: React.FC = () => {
   const loadMenu = async () => {
     setLoading(true);
     const filters = selectedCategory ? { category_id: selectedCategory } : {};
-    
+
     const [menuResult, categoriesResult] = await Promise.all([
       menuService.getMenu(filters),
       menuService.getCategories(),
     ]);
 
-    if (menuResult.success) {
-      setMenuItems(menuResult.data);
-    }
-
-    if (categoriesResult.success) {
-      setCategories(categoriesResult.data);
-    }
-
+    if (menuResult.success) setMenuItems(menuResult.data);
+    if (categoriesResult.success) setCategories(categoriesResult.data);
     setLoading(false);
-  };
+  }
+
+  // Fetch User Recommendations if logged in
+  useEffect(() => {
+    if (!isGuestMode && user) {
+      menuService.getUserRecommendations(user.id).then(res => {
+        if (res.success) setRecommendations(res.data);
+      });
+    }
+  }, [isGuestMode, user]);
+
+
+
+
 
   const addToCart = (item: APIMenuItem) => {
     // For guest mode, ask for name on first add
@@ -92,7 +101,7 @@ const Menu: React.FC = () => {
     }
 
     const existingItem = cart.find(cartItem => cartItem.id === item.id);
-    
+
     let newCart: CartItem[];
     if (existingItem) {
       newCart = cart.map(cartItem =>
@@ -103,13 +112,29 @@ const Menu: React.FC = () => {
     } else {
       newCart = [...cart, { ...item, quantity: 1 }];
     }
-    
+
     setCart(newCart);
     const cartKey = isGuestMode ? `guest_cart_table_${tableNumber}` : `cart_${user?.id}`;
     localStorage.setItem(cartKey, JSON.stringify(newCart));
-    
-    // Show notification
-    alert(`${item.name} added to cart!`);
+
+    // Check for recommendations
+    if (!item.id) return; // Safety check
+
+    // Only fetch if this is a direct add (not from recommendations list to avoid loops)
+    const isRecommendationAdd = (window as any).isRecommendationAdd;
+    if (!isRecommendationAdd) {
+      menuService.getItemRecommendations(item.id).then(res => {
+        if (res.success && res.data.length > 0) {
+          setRecommendations(res.data);
+          setShowRecommendationsModal(true);
+        } else {
+          alert(`${item.name} added to cart!`);
+        }
+      });
+    } else {
+      alert(`${item.name} added to cart!`);
+      (window as any).isRecommendationAdd = false;
+    }
   };
 
   const handleGuestNameSubmit = () => {
@@ -117,10 +142,10 @@ const Menu: React.FC = () => {
       alert('Please enter your name');
       return;
     }
-    
+
     localStorage.setItem(`guest_name_table_${tableNumber}`, guestName);
     setShowGuestNameModal(false);
-    
+
     // Add the pending item
     const pendingItem = (window as any).pendingCartItem;
     if (pendingItem) {
@@ -144,7 +169,7 @@ const Menu: React.FC = () => {
       }
       return item;
     }).filter(item => item.quantity > 0);
-    
+
     setCart(newCart);
     const cartKey = isGuestMode ? `guest_cart_table_${tableNumber}` : `cart_${user?.id}`;
     localStorage.setItem(cartKey, JSON.stringify(newCart));
@@ -162,12 +187,12 @@ const Menu: React.FC = () => {
 
     if (isGuestMode) {
       // For guest orders, navigate to guest checkout
-      navigate('/guest-checkout', { 
-        state: { 
-          cart, 
+      navigate('/guest-checkout', {
+        state: {
+          cart,
           tableNumber,
-          guestName 
-        } 
+          guestName
+        }
       });
     } else {
       // For logged-in users, use regular checkout
@@ -239,11 +264,10 @@ const Menu: React.FC = () => {
           <div className="mt-4 flex gap-2 overflow-x-auto pb-2">
             <button
               onClick={() => setSelectedCategory(null)}
-              className={`px-4 py-2 rounded-full whitespace-nowrap ${
-                selectedCategory === null
-                  ? 'bg-orange-500 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
+              className={`px-4 py-2 rounded-full whitespace-nowrap ${selectedCategory === null
+                ? 'bg-orange-500 text-white'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                }`}
             >
               All
             </button>
@@ -251,11 +275,10 @@ const Menu: React.FC = () => {
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-4 py-2 rounded-full whitespace-nowrap ${
-                  selectedCategory === category.id
-                    ? 'bg-orange-500 text-white'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                }`}
+                className={`px-4 py-2 rounded-full whitespace-nowrap ${selectedCategory === category.id
+                  ? 'bg-orange-500 text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
               >
                 {category.name}
               </button>
@@ -263,6 +286,31 @@ const Menu: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Recommended For You Section */}
+      {!isGuestMode && user && recommendations.length > 0 && (
+        <div className="max-w-7xl mx-auto px-4 py-8 mb-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <span>✨</span> Recommended For You
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {recommendations.map(item => (
+              <div key={item.id} className="bg-white rounded-xl shadow-md p-4 border border-orange-100 hover:shadow-lg transition-all cursor-pointer" onClick={() => addToCart(item)}>
+                {item.image_url && (
+                  <img src={item.image_url} alt={item.name} className="w-full h-32 object-cover rounded-lg mb-3" />
+                )}
+                <h3 className="font-bold text-gray-800 text-sm truncate">{item.name}</h3>
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-orange-600 font-bold text-sm">Rs. {item.price.toFixed(0)}</span>
+                  <div className="bg-orange-100 p-1 rounded-full text-orange-600">
+                    <ShoppingCartIcon className="h-4 w-4" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Menu Items */}
       <div className="max-w-7xl mx-auto px-4 py-6">
@@ -286,11 +334,10 @@ const Menu: React.FC = () => {
                   <button
                     onClick={() => addToCart(item)}
                     disabled={!item.is_available}
-                    className={`px-4 py-2 rounded-lg font-medium ${
-                      item.is_available
-                        ? 'bg-orange-500 text-white hover:bg-orange-600'
-                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                    }`}
+                    className={`px-4 py-2 rounded-lg font-medium ${item.is_available
+                      ? 'bg-orange-500 text-white hover:bg-orange-600'
+                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      }`}
                   >
                     {item.is_available ? 'Add to Cart' : 'Unavailable'}
                   </button>
@@ -417,6 +464,60 @@ const Menu: React.FC = () => {
                 </button>
               </div>
             )}
+          </div>
+        </div>
+      )}
+      {/* Recommendations Modal */}
+      {showRecommendationsModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg p-6 max-w-2xl w-full shadow-2xl overflow-y-auto max-h-[90vh]">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-bold text-gray-900">✨ Great Choice! People also ordered...</h3>
+              <button onClick={() => setShowRecommendationsModal(false)} className="text-gray-500 hover:text-gray-700">
+                <XMarkIcon className="h-6 w-6" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {recommendations.map(rec => (
+                <div key={rec.id} className="border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+                  {rec.image_url && (
+                    <img src={rec.image_url} alt={rec.name} className="w-full h-32 object-cover rounded-md mb-2" />
+                  )}
+                  <h4 className="font-semibold text-gray-800 truncate">{rec.name}</h4>
+                  <div className="flex justify-between items-center mt-2">
+                    <span className="text-orange-600 font-bold">Rs. {rec.price}</span>
+                    <button
+                      onClick={() => {
+                        (window as any).isRecommendationAdd = true;
+                        addToCart(rec);
+                      }}
+                      className="bg-orange-100 text-orange-600 p-2 rounded-full hover:bg-orange-200"
+                    >
+                      <ShoppingCartIcon className="h-5 w-5" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 flex justify-end gap-3">
+              <button
+                onClick={() => setShowRecommendationsModal(false)}
+                className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
+              >
+                Keep Shopping
+              </button>
+              <button
+                onClick={() => {
+                  setShowRecommendationsModal(false);
+                  setShowCart(true);
+                }}
+                className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 font-medium"
+              >
+                Go to Cart
+              </button>
+            </div>
           </div>
         </div>
       )}

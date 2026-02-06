@@ -12,7 +12,7 @@ const ScanAndPay: React.FC = () => {
     const params = new URLSearchParams(location.search);
     const table = params.get('table');
     const total = params.get('amount');
-    
+
     if (table) {
       setTableId(table);
     }
@@ -33,10 +33,10 @@ const ScanAndPay: React.FC = () => {
         <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">
           Payment Details
         </h2>
-        
+
         <div className="mb-8">
-          <QRCodeGenerator 
-            tableId={tableId} 
+          <QRCodeGenerator
+            tableId={tableId}
             type="payment"
             amount={amount}
           />
@@ -54,7 +54,7 @@ const ScanAndPay: React.FC = () => {
             <label className="block text-sm font-medium text-gray-700">
               Amount to Pay
             </label>
-            <p className="mt-1 text-lg font-semibold">${amount.toFixed(2)}</p>
+            <p className="mt-1 text-lg font-semibold">Rs. {amount.toFixed(2)}</p>
           </div>
 
           <button

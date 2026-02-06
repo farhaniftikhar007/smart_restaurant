@@ -181,6 +181,7 @@ class ReservationResponse(BaseModel):
     time: str
     guests: int
     special_requests: Optional[str] = None
+    table_number: Optional[str] = None  # Added
     status: str
     created_at: str  # Using str to avoid Pydantic issues
 

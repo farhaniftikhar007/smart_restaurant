@@ -72,7 +72,7 @@ const TopSelling: React.FC = () => {
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full">
-                  ${item.price.toFixed(2)}
+                  Rs. {item.price.toFixed(2)}
                 </div>
                 <div className="absolute bottom-4 left-4 bg-black/75 text-white px-3 py-1 rounded-full">
                   {item.sales} sold

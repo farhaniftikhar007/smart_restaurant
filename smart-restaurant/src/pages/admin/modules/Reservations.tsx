@@ -44,10 +44,19 @@ const Reservations: React.FC = () => {
 
   const updateReservationStatus = async (reservationId: number, newStatus: string) => {
     try {
+      let tableNumber = null;
+
+      // If confirming, ask for table number
+      if (newStatus === 'confirmed') {
+        const input = window.prompt("Assign a Table Number (Optional): e.g. 'Table 5' or 'No. 2'");
+        if (input === null) return; // Cancelled
+        tableNumber = input;
+      }
+
       const token = localStorage.getItem('token');
       await axios.patch(
         `${API_BASE_URL}/api/reservations/${reservationId}/status`,
-        { status: newStatus },
+        { status: newStatus, table_number: tableNumber },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       fetchReservations(); // Refresh the list
@@ -69,11 +78,11 @@ const Reservations: React.FC = () => {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      weekday: 'short', 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
+    return date.toLocaleDateString('en-GB', {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
     });
   };
 
@@ -89,7 +98,7 @@ const Reservations: React.FC = () => {
     return (
       <div className="bg-red-50 border border-red-200 rounded-lg p-4 m-4">
         <p className="text-red-800">Error: {error}</p>
-        <button 
+        <button
           onClick={fetchReservations}
           className="mt-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
         >
@@ -103,7 +112,7 @@ const Reservations: React.FC = () => {
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Reservations Management</h1>
-        <button 
+        <button
           onClick={fetchReservations}
           className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
         >
@@ -126,6 +135,10 @@ const Reservations: React.FC = () => {
                     <p>📧 {reservation.email}</p>
                     <p>📱 {reservation.phone}</p>
                     <p>👥 {reservation.guests} guests</p>
+                    {/* Show assigned table */}
+                    {(reservation as any).table_number && (
+                      <p className="text-orange-600 font-bold">📍 Assigned Table: {(reservation as any).table_number}</p>
+                    )}
                   </div>
                 </div>
                 <div className="text-left md:text-right">

@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 import uvicorn
 
 from app.database import engine, Base
-from app.routers import auth, menu, orders, restaurant, websocket, reservations, tables, upload
+from app.routers import auth, menu, orders, restaurant, websocket, reservations, tables, upload, analytics
 from app.config import settings
 
 
@@ -43,6 +43,7 @@ app.include_router(websocket.router, prefix="/api/ws", tags=["WebSocket"])
 app.include_router(reservations.router, prefix="/api/reservations", tags=["Reservations"])
 app.include_router(tables.router, prefix="/api/tables", tags=["Tables"])
 app.include_router(upload.router, prefix="/api/upload", tags=["Upload"])
+app.include_router(analytics.router, prefix="/api/analytics", tags=["Analytics"])
 
 @app.get("/")
 async def root():

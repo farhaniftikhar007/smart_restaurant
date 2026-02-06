@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  ClipboardDocumentListIcon, 
+import {
+  ClipboardDocumentListIcon,
   ShoppingBagIcon,
   CalendarIcon,
   TableCellsIcon,
@@ -9,12 +9,35 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../config/api';
 import axios from 'axios';
+import {
+  BarChart,
+  Bar,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer
+} from 'recharts';
 
 interface DashboardStats {
   totalOrders: number;
   pendingOrders: number;
   todayRevenue: number;
+  totalRevenue: number;
   activeReservations: number;
+}
+
+interface SalesTrend {
+  date: string;
+  amount: number;
+}
+
+interface TopSellingItem {
+  name: string;
+  value: number;
 }
 
 const CompleteAdminDashboard: React.FC = () => {
@@ -23,30 +46,66 @@ const CompleteAdminDashboard: React.FC = () => {
     totalOrders: 0,
     pendingOrders: 0,
     todayRevenue: 0,
+    totalRevenue: 0,
     activeReservations: 0
   });
+  const [salesTrends, setSalesTrends] = useState<SalesTrend[]>([]);
+  const [topSelling, setTopSelling] = useState<TopSellingItem[]>([]);
+  const [leastSelling, setLeastSelling] = useState<TopSellingItem[]>([]);
+  const [peakHours, setPeakHours] = useState<{ hour: number, count: number }[]>([]);
+  const [aiInsights, setAiInsights] = useState<{ type: string, message: string }[]>([]);
 
   useEffect(() => {
     fetchDashboardStats();
+    const intervalId = setInterval(fetchDashboardStats, 5000); // Poll every 5 seconds
+    return () => clearInterval(intervalId);
   }, []);
 
   const fetchDashboardStats = async () => {
     try {
       const token = localStorage.getItem('token');
-      
+
       // Fetch orders
-      const ordersRes = await axios.get(`${API_BASE_URL}/api/orders`, {
+      // Fetch orders (Request large limit to get accurate total count)
+      const ordersRes = await axios.get(`${API_BASE_URL}/api/orders?limit=1000`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      
+
       // Fetch reservations
       const reservationsRes = await axios.get(`${API_BASE_URL}/api/reservations/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      
+
+      // Fetch Analytics
+      try {
+        const salesRes = await axios.get(`${API_BASE_URL}/api/analytics/sales-trends`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const topRes = await axios.get(`${API_BASE_URL}/api/analytics/top-selling`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const leastRes = await axios.get(`${API_BASE_URL}/api/analytics/least-selling`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const peakRes = await axios.get(`${API_BASE_URL}/api/analytics/peak-hours`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const insightsRes = await axios.get(`${API_BASE_URL}/api/analytics/insights`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+
+        setSalesTrends(salesRes.data || []);
+        setTopSelling(topRes.data || []);
+        setLeastSelling(leastRes.data || []);
+        setPeakHours(peakRes.data || []);
+        setAiInsights(insightsRes.data || []);
+      } catch (err) {
+        console.error("Error fetching analytics", err);
+      }
+
       const orders = ordersRes.data || [];
       const reservations = reservationsRes.data || [];
-      
+
       // Calculate stats
       const totalOrders = orders.length;
       const pendingOrders = orders.filter((o: any) => o.status === 'pending').length;
@@ -57,14 +116,18 @@ const CompleteAdminDashboard: React.FC = () => {
           return orderDate === today;
         })
         .reduce((sum: number, o: any) => sum + parseFloat(o.total_amount || 0), 0);
-      const activeReservations = reservations.filter((r: any) => 
+
+      const totalRevenue = orders.reduce((sum: number, o: any) => sum + parseFloat(o.total_amount || 0), 0);
+
+      const activeReservations = reservations.filter((r: any) =>
         r.status === 'pending' || r.status === 'confirmed'
       ).length;
-      
+
       setStats({
         totalOrders,
         pendingOrders,
         todayRevenue,
+        totalRevenue,
         activeReservations
       });
     } catch (error) {
@@ -74,6 +137,7 @@ const CompleteAdminDashboard: React.FC = () => {
         totalOrders: 0,
         pendingOrders: 0,
         todayRevenue: 0,
+        totalRevenue: 0,
         activeReservations: 0
       });
     }
@@ -176,8 +240,8 @@ const CompleteAdminDashboard: React.FC = () => {
                 <ShoppingBagIcon className="h-6 w-6 text-white" />
               </div>
               <div className="ml-5">
-                <dt className="text-sm font-medium text-gray-500">Today's Revenue</dt>
-                <dd className="text-2xl font-semibold text-gray-900">${stats.todayRevenue.toFixed(2)}</dd>
+                <dt className="text-sm font-medium text-gray-500">Total Revenue</dt>
+                <dd className="text-2xl font-semibold text-gray-900">Rs. {stats.totalRevenue.toFixed(2)}</dd>
               </div>
             </div>
           </div>
@@ -190,6 +254,97 @@ const CompleteAdminDashboard: React.FC = () => {
               <div className="ml-5">
                 <dt className="text-sm font-medium text-gray-500">Reservations</dt>
                 <dd className="text-2xl font-semibold text-gray-900">{stats.activeReservations}</dd>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* AI Analytics Section */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span>🤖</span> AI Insights & Analytics
+          </h2>
+
+          {/* Textual Insights */}
+          <div className="grid grid-cols-1 gap-4 mb-6">
+            {aiInsights.map((insight, idx) => (
+              <div key={idx} className={`p-4 rounded-lg border-l-4 shadow-sm ${insight.type === 'warning' ? 'bg-red-50 border-red-500 text-red-700' :
+                insight.type === 'success' ? 'bg-green-50 border-green-500 text-green-700' :
+                  'bg-blue-50 border-blue-500 text-blue-700'
+                }`}>
+                <div className="flex items-start">
+                  <div className="ml-3">
+                    <p className="text-sm font-medium">{insight.message}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            <div className="bg-white p-5 rounded-lg shadow">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">Sales Trends (Last 30 Days)</h3>
+              <div className="h-80">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={salesTrends}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="date" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Line type="monotone" dataKey="amount" stroke="#4F46E5" strokeWidth={2} name="Revenue (PKR)" />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg shadow">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">Top Selling Items</h3>
+              <div className="h-80">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={topSelling}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="value" fill="#F97316" name="Quantity Sold" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="bg-white p-5 rounded-lg shadow">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">⚠️ Least Selling Items (Action Needed)</h3>
+              <div className="h-80">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={leastSelling} layout="vertical">
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis type="number" />
+                    <YAxis dataKey="name" type="category" width={100} />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="value" fill="#EF4444" name="Quantity Sold" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg shadow">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">⏰ Peak Business Hours</h3>
+              <div className="h-80">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={peakHours}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="hour" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="count" fill="#8B5CF6" name="Orders Count" />
+                  </BarChart>
+                </ResponsiveContainer>
               </div>
             </div>
           </div>

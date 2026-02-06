@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
-import { 
-  PlusIcon, 
-  MinusIcon, 
-  PencilIcon, 
-  TrashIcon, 
-  ShoppingCartIcon, 
+import {
+  PlusIcon,
+  MinusIcon,
+  PencilIcon,
+  TrashIcon,
+  ShoppingCartIcon,
   ArrowPathIcon,
   EyeIcon,
   ArrowDownTrayIcon,
@@ -60,7 +60,7 @@ const Menu: React.FC = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   const isAdmin = user?.role === 'admin';
-  
+
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -307,8 +307,8 @@ const Menu: React.FC = () => {
   const filteredItems = menuItems.filter(item => {
     const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
     const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         item.description.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesDietary = dietaryFilters.length === 0 || 
+      item.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesDietary = dietaryFilters.length === 0 ||
       dietaryFilters.every(filter => item.dietaryRestrictions?.includes(filter));
     const matchesSpecialOffers = !showSpecialOffers || item.isSpecialOffer;
     return matchesCategory && matchesSearch && matchesDietary && matchesSpecialOffers;
@@ -430,15 +430,15 @@ const Menu: React.FC = () => {
   };
 
   const handleAddToCart = (item: MenuItem, quantity: number, selectedSize?: string) => {
-    const price = selectedSize 
+    const price = selectedSize
       ? item.priceList?.find(p => p.size === selectedSize)?.price || item.price
       : item.price;
 
     setCart(prevCart => {
-      const existingItem = prevCart.find(cartItem => 
+      const existingItem = prevCart.find(cartItem =>
         cartItem.id === item.id && cartItem.size === selectedSize
       );
-      
+
       if (existingItem) {
         return prevCart.map(cartItem =>
           cartItem.id === item.id && cartItem.size === selectedSize
@@ -446,9 +446,9 @@ const Menu: React.FC = () => {
             : cartItem
         );
       }
-      
-      return [...prevCart, { 
-        ...item, 
+
+      return [...prevCart, {
+        ...item,
         quantity,
         size: selectedSize,
         price
@@ -469,251 +469,160 @@ const Menu: React.FC = () => {
     <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50'}`}>
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Our Pakistani Menu</h1>
-          <div className="flex gap-4">
-            <button
-              onClick={() => setIsDarkMode(!isDarkMode)}
-              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
-            >
-              {isDarkMode ? '🌞' : '🌙'}
-            </button>
-            {!isAdmin && (
+        {/* Header Hero Section */}
+        <div className="relative mb-12 bg-gradient-to-r from-orange-400 to-red-500 rounded-3xl p-8 shadow-2xl overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-white opacity-10 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+
+          <div className="relative z-10 flex flex-col md:flex-row justify-between items-center text-white">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-extrabold mb-2 text-white drop-shadow-md">
+                Taste of Pakistan 🌶️
+              </h1>
+              <p className="text-orange-100 text-lg">Authentic flavors, delivered to your table.</p>
+            </div>
+
+            <div className="flex gap-4 mt-6 md:mt-0">
               <button
-                onClick={() => setShowSpecialOffers(!showSpecialOffers)}
-                className={`p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 ${
-                  showSpecialOffers ? 'text-green-500' : ''
-                }`}
-                title="Show Special Offers"
+                onClick={() => setIsDarkMode(!isDarkMode)}
+                className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all border border-white/30"
+                title="Toggle Theme"
               >
-                <TagIcon className="w-6 h-6" />
+                {isDarkMode ? '🌞' : '🌙'}
               </button>
-            )}
-            {isAdmin ? (
-              <>
+              {!isAdmin && (
                 <button
-                  onClick={handleRefresh}
-                  className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
-                  disabled={isLoading}
-                  title="Sync Menu"
+                  onClick={() => setIsCartOpen(true)}
+                  className="flex items-center gap-2 bg-white text-orange-600 px-6 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all"
                 >
-                  <ArrowPathIcon className={`w-6 h-6 ${isLoading ? 'animate-spin' : ''}`} />
+                  <ShoppingCartIcon className="w-5 h-5" />
+                  Cart ({cart.reduce((sum, item) => sum + item.quantity, 0)})
                 </button>
-                <button
-                  onClick={() => setShowPreview(!showPreview)}
-                  className={`p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 ${
-                    showPreview ? 'text-blue-500' : ''
-                  }`}
-                  title="Preview Menu"
-                >
-                  <EyeIcon className="w-6 h-6" />
-                </button>
-                <button
-                  onClick={handleExport}
-                  className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
-                  title="Export as JSON"
-                >
-                  <ArrowDownTrayIcon className="w-6 h-6" />
-                </button>
-                <button
-                  onClick={handleExportCSV}
-                  className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
-                  title="Export as CSV"
-                >
-                  <DocumentArrowDownIcon className="w-6 h-6" />
-                </button>
+              )}
+              {isAdmin && (
                 <button
                   onClick={logout}
-                  className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+                  className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all border border-white/30"
                   title="Logout"
                 >
                   <ArrowRightOnRectangleIcon className="w-6 h-6" />
                 </button>
-              </>
-            ) : (
-              <button
-                onClick={() => setIsCartOpen(true)}
-                className="flex items-center gap-2 btn-primary"
-              >
-                <ShoppingCartIcon className="w-5 h-5" />
-                Cart ({cart.reduce((sum, item) => sum + item.quantity, 0)})
-              </button>
-            )}
+              )}
+            </div>
           </div>
         </div>
 
         {/* Search and Filters */}
-        <div className="mb-8">
-          <div className="flex gap-4 mb-4">
-            <input
-              type="text"
-              placeholder="Search Pakistani dishes..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="input-field flex-1"
-            />
-            {isAdmin && (
-              <button
-                onClick={() => {
-                  setEditingItem(null);
-                  setIsEditing(true);
-                }}
-                className="btn-primary"
-              >
-                <PlusIcon className="w-5 h-5 mr-2" />
-                Add Item
-              </button>
-            )}
-          </div>
-          <div className="flex flex-col gap-4">
-            <div className="flex gap-2 overflow-x-auto pb-2">
+        <div className="sticky top-4 z-40 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 mb-8 transition-all">
+          <div className="flex flex-col md:flex-row gap-4 items-center">
+            <div className="relative flex-1 w-full">
+              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">🔍</span>
+              <input
+                type="text"
+                placeholder="Find your craving..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 bg-gray-50 dark:bg-gray-900 border-none rounded-xl focus:ring-2 focus:ring-orange-500 transition-all text-lg shadow-inner"
+              />
+            </div>
+
+            <div className="flex gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide">
               {categories.map(category => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full capitalize ${
-                    selectedCategory === category
-                      ? 'bg-indigo-600 text-white'
-                      : 'bg-gray-200 dark:bg-gray-700'
-                  }`}
+                  className={`px-6 py-3 rounded-xl capitalize font-medium whitespace-nowrap transition-all duration-300 transform hover:scale-105 ${selectedCategory === category
+                    ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg shadow-orange-500/30'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-orange-50 dark:hover:bg-gray-600'
+                    }`}
                 >
                   {category}
                 </button>
               ))}
             </div>
-            {!isAdmin && (
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold mb-3">Food Preferences</h3>
-                <div className="flex flex-wrap gap-2">
-                  {dietaryOptions.map(option => (
-                    <motion.button
-                      key={option.id}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => handleDietaryFilterToggle(option.id)}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                        dietaryFilters.includes(option.id)
-                          ? 'bg-green-500 text-white'
-                          : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
-                      }`}
-                    >
-                      {option.label}
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
         </div>
 
         {/* Menu Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map(item => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="card group relative cursor-pointer"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+              className="group relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden cursor-pointer border border-gray-100 dark:border-gray-700 transition-all duration-300"
               onClick={() => setSelectedItem(item)}
             >
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-full h-48 object-cover rounded-t-xl"
-              />
-              {!item.isAvailable && (
-                <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm">
-                  Unavailable
-                </div>
-              )}
-              {item.isSpecialOffer && (
-                <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-sm">
-                  {item.specialOfferDetails?.discount}% OFF
-                </div>
-              )}
-              <div className="p-4">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-semibold">{item.name}</h3>
-                  {isAdmin && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleEdit(item);
-                      }}
-                      className="p-2 text-blue-600 hover:bg-blue-100 rounded-full"
-                      title="Preview Item"
-                    >
-                      <EyeIcon className="w-5 h-5" />
-                    </button>
-                  )}
-                </div>
-                <p className="text-gray-600 dark:text-gray-300 mb-2">{item.description}</p>
-                {item.dietaryRestrictions && (
-                  <div className="flex flex-wrap gap-1 mb-2">
-                    {item.dietaryRestrictions.map(restriction => (
-                      <span
-                        key={restriction}
-                        className="px-2 py-0.5 bg-gray-100 dark:bg-gray-700 rounded-full text-xs"
-                      >
-                        {restriction}
-                      </span>
-                    ))}
+              <div className="relative h-56 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+                {!item.isAvailable && (
+                  <div className="absolute top-4 left-4 z-20 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-md">
+                    Sold Out
                   </div>
                 )}
-                <div className="flex justify-between items-center">
-                  <div>
-                    <span className="text-lg font-bold">
-                      {item.isSpecialOffer ? (
-                        <>
-                          <span className="line-through text-gray-500 mr-2">
-                            PKR {item.price.toFixed(0)}
-                          </span>
-                          PKR {(item.price * (1 - (item.specialOfferDetails?.discount || 0) / 100)).toFixed(0)}
-                        </>
-                      ) : (
-                        `PKR ${item.price.toFixed(0)}`
-                      )}
-                    </span>
-                    <span className="text-sm text-gray-500 ml-2">
-                      {item.preparationTime} min
-                    </span>
+                {item.isSpecialOffer && (
+                  <div className="absolute top-4 right-4 z-20 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md animate-pulse">
+                    {item.specialOfferDetails?.discount}% OFF
                   </div>
+                )}
+                <div className="absolute bottom-4 left-4 z-20 text-white">
+                  <p className="text-sm font-medium bg-white/20 backdrop-blur-md px-2 py-1 rounded-lg inline-block">
+                    {item.preparationTime} min soak
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-3">
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-orange-500 transition-colors">
+                    {item.name}
+                  </h3>
+                  <span className="text-2xl font-extrabold text-orange-600 bg-orange-50 dark:bg-orange-900/30 px-3 py-1 rounded-lg">
+                    {item.isSpecialOffer ? (
+                      (item.price * (1 - (item.specialOfferDetails?.discount || 0) / 100)).toFixed(0)
+                    ) : (
+                      item.price.toFixed(0)
+                    )}
+                    <span className="text-sm font-normal ml-1">Rs</span>
+                  </span>
+                </div>
+
+                <p className="text-gray-500 dark:text-gray-400 text-sm line-clamp-2 mb-4 leading-relaxed">
+                  {item.description}
+                </p>
+
+                <div className="flex items-center justify-between mt-4 border-t border-gray-100 dark:border-gray-700 pt-4">
                   {isAdmin ? (
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 w-full justify-end">
                       <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleEdit(item);
-                        }}
-                        className="p-2 text-blue-600 hover:bg-blue-100 rounded-full"
-                        title="Edit Item"
+                        onClick={(e) => { e.stopPropagation(); handleEdit(item); }}
+                        className="p-2 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-100 transition-colors"
                       >
                         <PencilIcon className="w-5 h-5" />
                       </button>
                       <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleDelete(item.id);
-                        }}
-                        className="p-2 text-red-600 hover:bg-red-100 rounded-full"
-                        title="Delete Item"
+                        onClick={(e) => { e.stopPropagation(); handleDelete(item.id); }}
+                        className="p-2 bg-red-50 text-red-600 rounded-xl hover:bg-red-100 transition-colors"
                       >
                         <TrashIcon className="w-5 h-5" />
                       </button>
                     </div>
                   ) : (
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedItem(item);
-                        }}
-                        className="p-2 text-green-600 hover:bg-green-100 rounded-full"
-                        title="View Details"
-                      >
-                        <PlusIcon className="w-5 h-5" />
-                      </button>
-                    </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedItem(item);
+                      }}
+                      className="w-full py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl font-bold hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all transform active:scale-95 shadow-lg group-hover:shadow-orange-200"
+                    >
+                      {item.isAvailable ? 'Quick Add +' : 'Notify Me'}
+                    </button>
                   )}
                 </div>
               </div>

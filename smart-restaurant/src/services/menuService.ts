@@ -152,6 +152,30 @@ class MenuService {
       };
     }
   }
+
+  /**
+   * Get item recommendations
+   */
+  async getItemRecommendations(itemId: number): Promise<{ success: boolean; data: MenuItem[] }> {
+    try {
+      const response = await httpClient.get<MenuItem[]>(`/api/analytics/recommendations/item/${itemId}`);
+      return { success: true, data: response.data };
+    } catch (error: any) {
+      return { success: false, data: [] };
+    }
+  }
+
+  /**
+   * Get user recommendations
+   */
+  async getUserRecommendations(userId: number): Promise<{ success: boolean; data: MenuItem[] }> {
+    try {
+      const response = await httpClient.get<MenuItem[]>(`/api/analytics/recommendations/user/${userId}`);
+      return { success: true, data: response.data };
+    } catch (error: any) {
+      return { success: false, data: [] };
+    }
+  }
 }
 
 export const menuService = new MenuService();

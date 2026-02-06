@@ -1,0 +1,34 @@
+========================================
+   RESTAURANT MANAGEMENT SYSTEM
+   Quick Start Guide
+========================================
+
+WINDOWS USERS:
+--------------
+1. Double-click "start.bat"
+2. Wait 30 seconds
+3. Open CMD, type: ipconfig
+4. Note your IPv4 Address (e.g., 192.168.1.100)
+5. Open browser: http://YOUR_IP:3000
+
+LINUX/MAC USERS:
+----------------
+1. Open terminal in this folder
+2. Run: chmod +x start.sh && ./start.sh
+3. Find IP: ip addr (Linux) or ifconfig (Mac)
+4. Open browser: http://YOUR_IP:3000
+
+ADMIN LOGIN:
+------------
+Email: admin@restaurant.com
+Password: admin123
+
+NEED HELP?
+----------
+Read "SETUP_INSTRUCTIONS.md" for detailed guide
+
+TO STOP:
+--------
+Windows: Double-click stop.bat
+Linux/Mac: docker-compose down
+========================================

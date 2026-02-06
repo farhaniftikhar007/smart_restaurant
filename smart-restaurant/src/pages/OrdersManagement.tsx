@@ -28,15 +28,18 @@ const OrdersManagement: React.FC = () => {
 
   useEffect(() => {
     fetchOrders();
+    const intervalId = setInterval(fetchOrders, 5000); // Auto-refresh every 5s
+    return () => clearInterval(intervalId);
   }, []);
 
   const fetchOrders = async () => {
     try {
-      setLoading(true);
+      // setLoading(true); // Don't show loading spinner on background refresh? Or maybe just initial.
+      // Actually keeping loading true makes the page flicker. Let's optimize.
       const token = localStorage.getItem('token');
-      const url = `${API_BASE_URL}/api/orders`;
+      const url = `${API_BASE_URL}/api/orders?limit=100`; // Increase limit to 100
       console.log('Fetching orders from:', url);
-      
+
       const response = await axios.get(url, {
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -46,7 +49,7 @@ const OrdersManagement: React.FC = () => {
       setError(err.message || 'Failed to fetch orders');
       console.error('Error fetching orders:', err);
     } finally {
-      setLoading(false);
+      if (loading) setLoading(false);
     }
   };
 
@@ -54,7 +57,7 @@ const OrdersManagement: React.FC = () => {
     try {
       const token = localStorage.getItem('token');
       const url = `${API_BASE_URL}/api/orders/${orderId}/status`;
-      
+
       await axios.patch(
         url,
         { status: newStatus },
@@ -92,7 +95,7 @@ const OrdersManagement: React.FC = () => {
       <div className="bg-red-50 border border-red-200 rounded-lg p-4 m-4">
         <p className="text-red-800">Error: {error}</p>
         <p className="text-sm text-gray-600 mt-2">API URL: {API_BASE_URL}</p>
-        <button 
+        <button
           onClick={fetchOrders}
           className="mt-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
         >
@@ -106,7 +109,7 @@ const OrdersManagement: React.FC = () => {
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Orders Management</h1>
-        <button 
+        <button
           onClick={fetchOrders}
           className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
         >
@@ -126,7 +129,7 @@ const OrdersManagement: React.FC = () => {
                 <div>
                   <h3 className="text-xl font-semibold">{order.order_number}</h3>
                   <p className="text-gray-600">
-                    {new Date(order.created_at).toLocaleString()}
+                    {new Date(order.created_at).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: true })}
                   </p>
                   {order.table_number && (
                     <p className="text-gray-600">Table: {order.table_number}</p>
